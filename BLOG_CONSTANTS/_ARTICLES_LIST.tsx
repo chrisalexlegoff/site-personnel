@@ -35,9 +35,10 @@ const ARTICLES_LIST: iArticle[] = [
   {
     path: "/pages/tutorial/how-to-setup-blog.tsx",
     featureArticle: true,
+    aVoirAbsolument: true,
     preview: {
       author: MAYUR,
-      date: "August 08 2022",
+      date: "August 09 2022",
       articleTitle: "How to setup this blog template",
       tags: "demo, blog setup",
       thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
@@ -56,9 +57,10 @@ const ARTICLES_LIST: iArticle[] = [
   {
     path: "/pages/tutorial/how-to-write-your-first-article.tsx",
     featureArticle: true,
+    aVoirAbsolument: true,
     preview: {
       author: RUPALI,
-      date: "August 08 2022",
+      date: "August 10 2022",
       articleTitle: "How to write your first article",
       tags: "demo, first article",
       thumbnail: "/public/imp_assets/tutorials/how-to-write-first-article.svg",

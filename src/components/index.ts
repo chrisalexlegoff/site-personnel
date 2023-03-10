@@ -10,3 +10,5 @@ export const Slider = dynamic(() => import("./Slider"));
 export const Accordian = dynamic(() => import("./Accordian"));
 export const VideoPlayer = dynamic(() => import("./Video"));
 export const ReadingProgress = dynamic(() => import("./ReadingProgress"));
+export const Favicons = dynamic(() => import("./Favicons"));
+export const Footer = dynamic(() => import("./Footer"));

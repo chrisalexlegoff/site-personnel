@@ -47,7 +47,10 @@ const Contact = () => {
           </div>
           <div className="md:w-1/3 w-full">
             <Text p>Mon mail</Text>
-            <LinkTo href="mailto:contact@christophe-le-goff.com">
+            <LinkTo
+              className="block"
+              href="mailto:contact@christophe-le-goff.com"
+            >
               <Text subtitle className="!font-light md:!text-2xl w-fit">
                 contact@christophe-le-goff.com
               </Text>

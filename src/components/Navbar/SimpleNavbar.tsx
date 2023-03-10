@@ -22,6 +22,12 @@ const SimpleNavbar = ({
   const [openDD, setOpenDD] = useState(false);
   const { theme, setTheme } = useTheme();
 
+  useEffect(() => {
+    window.onscroll = () => {
+      openDD && setOpenDD(false);
+    };
+  }, [openDD]);
+
   return (
     <div
       className={combineClasses(
@@ -65,7 +71,7 @@ const SimpleNavbar = ({
 
       <div className="flex items-center">
         <div className="text-[14px] font-normal items-center lg:flex hidden">
-          {navLinks.map((each: iNavLink, i: any) =>
+          {navLinks.map((each: iNavLink, i: number) =>
             each.type !== "dropdown" ? (
               !each.newTab ? (
                 <LinkTo href={each.path} key={i} passHref className="mx-2">
@@ -75,7 +81,7 @@ const SimpleNavbar = ({
                 <LinkTo
                   external
                   href={each.path}
-                  key={each.path + 1}
+                  key={i}
                   className="d-block mx-2 flex-wrap"
                 >
                   {each.label}
@@ -83,6 +89,7 @@ const SimpleNavbar = ({
               )
             ) : (
               <NavCatergoryDD
+                key={i}
                 label={each.label}
                 openDD={openDD}
                 setOpenDD={() => setOpenDD(!openDD)}

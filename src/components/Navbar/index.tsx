@@ -6,6 +6,7 @@ import {
   addBodyNoScroll,
   combineClasses,
   getDeviceType,
+  hideNavWhileScrolling,
   removeBodyNoScroll,
   webShare,
 } from "../../utils/utils";
@@ -73,12 +74,17 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    hideNavWhileScrolling({ when: !scrolled });
+  }, [scrolled]);
+
   return (
     <>
       <nav
+        id="navbar"
         className={combineClasses(
           classes.navbar,
-          "bg-white  dark:bg-slate-900 dark:text-white text-black"
+          "backdrop-blur-lg dark:text-white text-black duration-500"
         )}
       >
         {isMobile ? (

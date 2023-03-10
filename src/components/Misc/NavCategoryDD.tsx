@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { combineClasses, getCategories } from "../../utils/utils";
 import LinkTo from "../LinkTo";
@@ -15,6 +16,11 @@ const NavCatergoryDD = ({
   label,
   floating = false,
 }: INavCatergoryDD) => {
+  useEffect(() => {
+    window.onscroll = () => {
+      openDD && setOpenDD(false);
+    };
+  }, [openDD]);
   const CATEGORIES = getCategories();
   return (
     <>
@@ -41,10 +47,10 @@ const NavCatergoryDD = ({
           <LinkTo href={"/blog"} passHref className="block text-sm py-2 px-2">
             <span onClick={() => setOpenDD(!openDD)}>All Articles</span>
           </LinkTo>
-          {CATEGORIES.map((each) => (
+          {CATEGORIES.map((each, i) => (
             <LinkTo
               href={"/blog?category=" + each}
-              key={each}
+              key={i}
               passHref
               className="block text-sm py-2 px-2 border-t border-gray-400"
             >

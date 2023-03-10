@@ -22,6 +22,7 @@ const Home = () => {
 
           <div className="flex justify-center mt-5 flex-wrap ">
             <LinkTo
+              underline={false}
               external
               href="https://github.com/chrisalexlegoff"
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"
@@ -29,6 +30,7 @@ const Home = () => {
               <span className="text-xl pt-2 block">Github</span>
             </LinkTo>
             <LinkTo
+              underline={false}
               href="/pages/a-propos.tsx"
               passHref
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"
@@ -36,6 +38,7 @@ const Home = () => {
               <span className="text-xl pt-2 block">A propos</span>
             </LinkTo>
             <LinkTo
+              underline={false}
               href="/pages/blog"
               passHref
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"
@@ -43,6 +46,7 @@ const Home = () => {
               <span className="text-xl pt-2 block">Le blog</span>
             </LinkTo>
             <LinkTo
+              underline={false}
               href="/pages/blog/?category=tutorial"
               passHref
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"
@@ -50,6 +54,7 @@ const Home = () => {
               <span className="text-xl pt-2 block">Tutoriels</span>
             </LinkTo>
             <LinkTo
+              underline={false}
               external
               href="https://www.buymeacoffee.com/chrisalexlegoff"
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"

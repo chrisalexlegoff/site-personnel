@@ -185,24 +185,25 @@ export const CREATE_SEO_CONFIG = (PAGE_SEO: iSEO) => {
   const author = ARTICLE_DETAILS
     ? ARTICLE_DETAILS?.preview.author.name
     : PAGE_SEO?.author;
-
   const title =
     router.asPath === "/"
       ? `${
           ARTICLE_DETAILS
             ? ARTICLE_DETAILS?.preview?.articleTitle
             : PAGE_SEO?.title
-        } ${author ? "| " + author : null}`
+        } ${author != "Christophe Le Goff" ? "| " + author : ""}`
       : `${
           ARTICLE_DETAILS
             ? ARTICLE_DETAILS?.preview?.articleTitle
             : PAGE_SEO?.title
-        } | ${WEBSITE_NAME} ${author ? "| " + author : null}`;
+        } | ${WEBSITE_NAME} ${
+          author != "Christophe Le Goff" ? "| " + author : ""
+        }`;
 
   let seo_config = {
     title: title,
     description: meta_description,
-    canonical: "https://webexpe.com/",
+    canonical: ogUrl,
     additionalMetaTags: [
       {
         property: "keywords",
@@ -215,7 +216,7 @@ export const CREATE_SEO_CONFIG = (PAGE_SEO: iSEO) => {
     ],
     openGraph: {
       type: "website",
-      locale: "en_IN",
+      locale: "fr_FR",
       url: ogUrl,
       site_name: WEBSITE_NAME,
       images: [

@@ -13,6 +13,8 @@ import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import NavCatergoryDD from "../Misc/NavCategoryDD";
 import { iNavLink, iNavSetup, iNavSocials } from "../../shared/interfaces";
+import { CURRENT_YEAR } from "../../constants/appConstants";
+import { AVoirAbsoluement } from "../Misc/AVoirAbsolument";
 
 interface IProps {
   openSidebar: boolean;
@@ -38,6 +40,13 @@ const NavSidebar = ({
 
   const env = process.env.NODE_ENV;
   const [openDD, setOpenDD] = useState(false);
+  useEffect(() => {
+    const aside = document.querySelector("aside");
+    if (aside)
+      aside.onscroll = () => {
+        openDD && setOpenDD(false);
+      };
+  }, [openDD]);
 
   return (
     <>
@@ -63,7 +72,7 @@ const NavSidebar = ({
         </div>
         <hr />
         <div className="my-15">
-          {navSetup.sideNavLinks.map((each: iNavLink, i: any) =>
+          {navSetup.sideNavLinks.map((each: iNavLink, i: number) =>
             each.type !== "dropdown" ? (
               !each.newTab ? (
                 <LinkTo
@@ -78,7 +87,7 @@ const NavSidebar = ({
                 <LinkTo
                   external
                   href={each.path}
-                  key={each.path}
+                  key={i}
                   className="text-[16px] block my-3 flex-wrap"
                 >
                   {each.label}
@@ -86,13 +95,14 @@ const NavSidebar = ({
               )
             ) : (
               <NavCatergoryDD
+                key={i}
                 label={each.label}
                 openDD={openDD}
                 setOpenDD={() => setOpenDD(!openDD)}
               />
             )
           )}
-          {env === "development" ? (
+          {env != "development" ? (
             <>
               <hr />
               <Text subtitle className="mt-3 !text-[18px]">
@@ -162,19 +172,21 @@ const NavSidebar = ({
                 Icons
               </LinkTo>
             </>
-          ) : null}
+          ) : (
+            <AVoirAbsoluement />
+          )}
         </div>
         <hr />
         <div className="my-5">
           {navSetup.socials && (
             <>
               <p className="font-light">Suivez-moi : </p>{" "}
-              {navSetup.socials.map((each: iNavSocials) => (
+              {navSetup.socials.map((each: iNavSocials, i: number) => (
                 <LinkTo
                   underline={false}
                   external
                   href={each.link}
-                  key={each.link}
+                  key={i}
                   className="text-[28px] inline-block mr-5 mt-2"
                 >
                   {each.icon}
@@ -207,7 +219,7 @@ const NavSidebar = ({
         <hr />
         <div className="my-5">
           <p className="text-sm font-light dark:text-gray-400 text-gray-500 mb-1">
-            Copyright © 2022
+            Copyright © {`${CURRENT_YEAR}`}
           </p>
           <LinkTo
             href="/privacy-policy"

@@ -6,7 +6,6 @@ import {
   transformPath,
 } from "../../utils/utils";
 import LinkTo from "../LinkTo";
-import { useRouter } from "next/router";
 import Avatar from "../Misc/Avatar";
 import ArticleCardCategory from "../Misc/ArticleCardCategory";
 import ArticleTags from "../Misc/ArticleTags";
@@ -17,12 +16,6 @@ interface IProp {
 }
 
 const FeaturedArticle = ({ article, path }: IProp) => {
-  const router = useRouter();
-  const gotoPath = (e: any) => {
-    e.preventDefault();
-    router.push(transformPath(path));
-  };
-
   return (
     <>
       <div

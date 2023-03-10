@@ -25,7 +25,7 @@ const LinkTo = ({
       {newTab || external ? (
         <a
           href={transformPath(href)}
-          className={`${className} block w-fit`}
+          className={`${className} w-fit`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -38,9 +38,9 @@ const LinkTo = ({
         </a>
       ) : (
         <Link href={transformPath(href)} passHref={passHref}>
-          <a
+          <span
             className={combineClasses(
-              `${className} block w-fit cursor-pointer hover:text-blue-500`
+              `${className} w-fit cursor-pointer hover:text-blue-500`
             )}
           >
             <span className="group relative w-fit">
@@ -49,7 +49,7 @@ const LinkTo = ({
                 <span className="absolute -bottom-0.5 left-0 h-[1px] w-0 group-hover:w-full group-focus:w-full bg-blue-500 duration-300 ease-in-scroll"></span>
               )}
             </span>
-          </a>
+          </span>
         </Link>
       )}
     </>

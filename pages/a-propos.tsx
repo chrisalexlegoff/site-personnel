@@ -10,7 +10,6 @@ import {
   Slider,
   Accordian,
 } from "../src/components";
-import { CURRENT_YEAR } from "../src/constants/appConstants";
 import { iSEO } from "../src/shared/interfaces";
 
 const About = () => {
@@ -25,10 +24,10 @@ const About = () => {
     <PageLayout PAGE_SEO={PAGE_SEO} home>
       <section className="container px-3 md:pb-20 md:pt-10 pt-20">
         <div className="">
-          <a
+          <LinkTo
+            underline={false}
+            external
             href="https://christophe-le-goff.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
             className="block"
           >
             <img
@@ -36,7 +35,7 @@ const About = () => {
               alt="christophe-le-goff.fr"
               className="rounded-lg overflow-hidden"
             />
-          </a>
+          </LinkTo>
           <Text title className="mb-5 mt-10 dark:text-sky-400 text-sky-600">
             Bonjour, je suis Christophe.
           </Text>
@@ -49,7 +48,6 @@ const About = () => {
             framework React.js, Next.js, ExpressJS, le CMS HeadLess Strapi et
             l'administration de bases de données.
           </Text>
-
           <Text p className="text-lg">
             Mon but est de promouvoir le plaisir de coder. <br />
             J'ai créé ce site pour partager mes connaissances, mon expérience et
@@ -58,12 +56,15 @@ const About = () => {
             mes approches, je partage uniquement. <br />
             <br />
             N'hésitez pas à me contacter pour participer ou simplement discuter{" "}
-            <a
+            <LinkTo
+              block
+              underline={false}
+              external
               href="mailto:contact@christophe-le-goff.com"
               className="underline font-bold"
             >
               directement
-            </a>
+            </LinkTo>
             .
           </Text>
           <Seperator dots />
@@ -95,12 +96,12 @@ const About = () => {
                 plus de 20 ans 🏖️
               </li>
             </List>
-          </Accordian>
+          </Accordian>{" "}
           <Accordian title="Quelques technos:" keepOpen={false}>
             <Text p className="text-lg">
               𝙑𝙤𝙞𝙘𝙞 𝙦𝙪𝙚𝙡𝙦𝙪𝙚𝙨 𝙩𝙚𝙘𝙝𝙣𝙤𝙡𝙤𝙜𝙞𝙚𝙨 𝙖𝙫𝙚𝙘 𝙡𝙚𝙨𝙦𝙪𝙚𝙡𝙡𝙚𝙨 𝙟'𝙖𝙞 𝙩𝙧𝙖𝙫𝙖𝙞𝙡𝙡𝙚́
+              𝙧𝙚́𝙘𝙚𝙢𝙢𝙚𝙣𝙩:
             </Text>
-            𝙧𝙚́𝙘𝙚𝙢𝙢𝙚𝙣𝙩:
             <div className="flex">
               <List type={ListType.disc}>
                 <li>NextJs</li>
@@ -113,7 +114,7 @@ const About = () => {
                 <li>ReactJs</li>{" "}
               </List>{" "}
             </div>
-          </Accordian>
+          </Accordian>{" "}
           <Accordian title="Ce que je fais:" keepOpen={false}>
             <Text p className="text-lg">
               Développement front-end :
@@ -139,43 +140,34 @@ const About = () => {
               <li> ✔️ Spécialisé manipulation données via 𝗣𝗼𝘀𝘁𝗴𝗿𝗲𝗦𝗤𝗟</li>
               <li> ✔️ Gestion complète en ligne de commandes (𝗣𝗦𝗤𝗟).</li>
             </List>
-          </Accordian>
+          </Accordian>{" "}
           <Accordian title="Un peu plus:" keepOpen={false}>
             <Text p className="text-lg">
               Développement full stack en partenariat avec la designer Sabrina
               Dos Santos:{" "}
-              <a
-                href="https://sabrina-dossantos.fr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <LinkTo block external href="https://sabrina-dossantos.fr">
                 https://sabrina-dossantos.fr
-              </a>
+              </LinkTo>
               <br />
-              <br />
-              <List type={ListType.none}>
-                <li>
-                  🌍 Visitez mon portfolio:{" "}
-                  <a
-                    href="https://christophe-le-goff.fr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    https://christophe-le-goff.fr
-                  </a>
-                </li>
-                <li>
-                  💣 Mon 𝗚𝗶𝘁𝗵𝘂𝗯:{" "}
-                  <a
-                    href="https://github.com/chrisalexlegoff"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    https://github.com/chrisalexlegoff
-                  </a>
-                </li>
-              </List>
             </Text>
+            <List type={ListType.none}>
+              <li>
+                🌍 Visitez mon portfolio:{" "}
+                <LinkTo block external href="https://christophe-le-goff.fr">
+                  https://christophe-le-goff.fr
+                </LinkTo>
+              </li>
+              <li>
+                💣 Mon 𝗚𝗶𝘁𝗵𝘂𝗯:{" "}
+                <LinkTo
+                  block
+                  external
+                  href="https://github.com/chrisalexlegoff"
+                >
+                  https://github.com/chrisalexlegoff
+                </LinkTo>
+              </li>
+            </List>
           </Accordian>
           <Seperator />
           <Text subtitle className="text-3xl font-medium">
@@ -184,11 +176,11 @@ const About = () => {
           <Text p className="text-lg">
             Curieux et disponible, je pense que l'on va bien s'entendre 🖐️
           </Text>
-
           <Seperator />
           <Text p className="text-lg">
             Créé par{" "}
             <LinkTo
+              block
               href="https://www.linkedin.com/in/rupali-yadav-087bb4112/"
               external
               className="font-semibold"
@@ -197,31 +189,31 @@ const About = () => {
             </LinkTo>{" "}
             avec ♥
           </Text>
-          <a
+          <LinkTo
+            underline={false}
+            external
             href="https://www.buymeacoffee.com/chrisalexlegoff"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <img
               src="/images/bmc.png"
               className="ml-0"
               alt="christophe-le-goff.fr"
             />
-          </a>
+          </LinkTo>
           <div className="px-4 py-3 dark:bg-slate-800 bg-blue-200 rounded my-5">
             <Text p className="!text-lg leading-relaxed">
               Pour toute question relative à ce site/projet, n'hésitez pas à me
               contacter à l'adresse e-mail indiquée. Vous pouvez également
               poster n'importe quel commentaires sur mon{" "}
-              <a
+              <LinkTo
+                block
+                underline={false}
+                external
                 href="https://github.com/chrisalexlegoff/site-personnel/discussions"
-                target="_blank"
-                rel="noopener noreferrer"
+                className="underline font-bold"
               >
-                <u>
-                  <i>fil de discussions github</i>
-                </u>
-              </a>
+                fil de discussions github
+              </LinkTo>
               .
             </Text>
           </div>

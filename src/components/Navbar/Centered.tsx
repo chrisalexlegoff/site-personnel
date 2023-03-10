@@ -1,5 +1,5 @@
 import classes from "./Navbar.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { combineClasses, transformImagePaths } from "../../utils/utils";
 import { LogoType, THEMES } from "../../shared/enums";
 import LinkTo from "../LinkTo";
@@ -14,12 +14,18 @@ const CenteredNavbar = ({
   toggleSideMenu,
   openSidebar = false,
   navSetup,
-  onShareClick
+  onShareClick,
 }: iNavbar) => {
   const { navLinks, socials, logo } = navSetup;
 
   const [openDD, setOpenDD] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    window.onscroll = () => {
+      openDD && setOpenDD(false);
+    };
+  }, [openDD]);
 
   return (
     <div className={"container"}>

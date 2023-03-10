@@ -235,8 +235,8 @@ export const NavbarSetup_NAVLINKS = `
                 type: 'dropdown'
             },
             {
-                label: 'About Us',
-                path: '/about-us'
+                label: 'A propos',
+                path: '/a-propos'
             },
             {
                 // to open a link in new tab pass newTab: true

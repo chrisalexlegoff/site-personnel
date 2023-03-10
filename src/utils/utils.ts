@@ -47,7 +47,7 @@ export const changeTheme = (): void => {
  * @returns string
  */
 export const getDeviceType = (): string => {
-  const ua = typeof window !== "undefined" ? navigator.userAgent : 'desktop';
+  const ua = typeof window !== "undefined" ? navigator.userAgent : "desktop";
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
     return "tablet";
   }
@@ -267,4 +267,32 @@ export const webShare = () => {
       return false;
     }
   }
+};
+
+/**
+ * Cacher la barre de navigation au scroll
+ * @returns false si pas de nav!
+ */
+export const hideNavWhileScrolling = ({
+  id = "navbar",
+  offset = 100,
+  when = true,
+}: {
+  id?: string;
+  offset?: number;
+  when: boolean;
+}) => {
+  const nav = document.getElementById(id);
+  if (!nav) return;
+
+  let prevScrollPos = window.pageYOffset;
+
+  window.onscroll = () => {
+    if (when) {
+      let curScrollPos = window.pageYOffset;
+      if (prevScrollPos < curScrollPos) nav.style.top = `-${offset}px`;
+      else nav.style.top = "0";
+      prevScrollPos = curScrollPos;
+    }
+  };
 };

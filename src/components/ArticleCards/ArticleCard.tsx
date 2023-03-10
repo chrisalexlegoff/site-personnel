@@ -30,6 +30,7 @@ const ArticleCard = ({ article, path }: IProp) => {
   return (
     <div className={"w-full lg:w-1/3 md:w-1/2 md:px-[15px] px-2 mb-[30px]"}>
       <LinkTo
+        underline={false}
         href={transformPath(path)}
         passHref
         className={combineClasses(
@@ -53,7 +54,7 @@ const ArticleCard = ({ article, path }: IProp) => {
             <p className={"font-normal text-xs pt-3 mb-0 md:mb-3"}>
               {article.date}
             </p>
-            <LinkTo href={transformPath(path)} passHref>
+            <LinkTo underline={false} href={transformPath(path)} passHref>
               <h1
                 className={
                   "text-[22px] font-bold cursor-pointer tracking-wide hover:text-blue-600"
@@ -85,6 +86,7 @@ const ArticleCard = ({ article, path }: IProp) => {
               className="w-[40px] h-[40px] mr-3 text-xl"
             />
             <LinkTo
+              underline={false}
               href={"/blog?author=" + article.author.name}
               passHref
               className={combineClasses(

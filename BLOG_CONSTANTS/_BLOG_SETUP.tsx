@@ -7,6 +7,8 @@ import {
   AiFillInstagram,
   AiFillFacebook,
   AiFillTwitterCircle,
+  AiOutlineGithub,
+  AiOutlineLinkedin,
 } from "react-icons/ai";
 
 /**
@@ -117,7 +119,7 @@ export const PRIMARY_NAV: iNavSetup = {
   // navLinks are the main navbar links that apper on top of every page
   navLinks: [
     {
-      label: "Home",
+      label: "Accueil",
       path: "/",
     },
     {
@@ -127,18 +129,18 @@ export const PRIMARY_NAV: iNavSetup = {
       path: "",
     },
     {
-      label: "About Us",
-      path: "/about-us",
+      label: "A propos",
+      path: "/a-propos",
     },
     {
       // to open a link in new tab pass newTab: true
-      label: "Support Us",
-      path: "https://www.buymeacoffee.com/webexpe13z",
+      label: "Support",
+      path: "https://www.buymeacoffee.com/chrisalexlegoff",
       newTab: true,
     },
     {
-      label: "Github Repo",
-      path: "https://github.com/webexpe13/blog-template-using-nextjs-typescript-tailwindcss",
+      label: "Portfolio",
+      path: "https://christophe-le-goff.fr",
       newTab: true,
     },
     {
@@ -149,7 +151,7 @@ export const PRIMARY_NAV: iNavSetup = {
   // sideNavLinks are the links which appear when you open the side menu after clicking the burger menu icon.
   sideNavLinks: [
     {
-      label: "Home",
+      label: "Accueil",
       path: "/",
     },
     {
@@ -159,17 +161,17 @@ export const PRIMARY_NAV: iNavSetup = {
       path: "",
     },
     {
-      label: "About Us",
-      path: "/about-us",
+      label: "A propos",
+      path: "/a-propos",
     },
     {
-      label: "Support Us",
-      path: "https://www.buymeacoffee.com/webexpe13z",
+      label: "Support",
+      path: "https://www.buymeacoffee.com/chrisalexlegoff",
       newTab: true,
     },
     {
-      label: "Github Repo",
-      path: "https://github.com/webexpe13/blog-template-using-nextjs-typescript-tailwindcss",
+      label: "Portfolio",
+      path: "https://christophe-le-goff.fr",
       newTab: true,
     },
     {
@@ -179,27 +181,36 @@ export const PRIMARY_NAV: iNavSetup = {
   ],
   socials: [
     {
-      link: "https://www.facebook.com/",
+      link: "https://www.facebook.com/christophe.legoff.739",
       icon: <AiFillFacebook />,
     },
     {
-      link: "https://www.instagram.com/",
+      link: "https://www.instagram.com/chrisalexlegoff/",
       icon: <AiFillInstagram />,
     },
     {
-      link: "https://twitter.com/WebExpe",
+      link: "https://twitter.com/chrisalexlegoff",
       icon: <AiOutlineTwitter />,
+    },
+    {
+      link: "https://github.com/chrisalexlegoff",
+      icon: <AiOutlineGithub />,
+    },
+    {
+      link: "https://www.linkedin.com/in/chrisalexlegoff/",
+      icon: <AiOutlineLinkedin />,
     },
   ],
 };
 
 export const DEFAULT_SEO: iSEO = {
-  title: "Nextjs simple blog template",
-  description: "A simple blog template using NextJS and Typescript.",
+  title: "Christophe Le Goff",
+  description:
+    "Site personnel de Christophe Le Goff développeur freelance full stack spécialisé dans la conception de sites web et applications en javascript - typescript.",
   keywords:
     "Blog, next js, template, next js blog, blog setup, typescript, nextjs typescript, react js blog template, responsive blog template",
   url: WEBSITE_URL,
-  author: `${MAYUR.name}, ${RUPALI.name}`,
-  twitterHandle: "@WebExpe",
+  author: `${CHRISTOPHE.name}`,
+  twitterHandle: "@chrisalexlegoff",
   ogImage: "/public/images/og-image.jpg",
 };

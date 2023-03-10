@@ -6,6 +6,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 html,
 body {
   padding: 0;
@@ -26,6 +39,7 @@ a {
 
 * {
   box-sizing: border-box;
+    @apply no-scrollbar;
 }
 
 .line-clamp {

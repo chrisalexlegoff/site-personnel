@@ -24,7 +24,7 @@ const SocialShare = () => {
   };
 
   const copyLink = () => {
-    if (typeof window !== "undefined" && navigator) {
+    if (typeof window !== "undefined" && navigator && url !== undefined) {
       navigator.clipboard.writeText(url);
       setShowCopiedAlert(true);
     }

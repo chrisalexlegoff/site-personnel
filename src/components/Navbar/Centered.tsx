@@ -1,5 +1,5 @@
 import classes from "./Navbar.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { combineClasses, transformImagePaths } from "../../utils/utils";
 import { LogoType, THEMES } from "../../shared/enums";
 import LinkTo from "../LinkTo";
@@ -14,18 +14,12 @@ const CenteredNavbar = ({
   toggleSideMenu,
   openSidebar = false,
   navSetup,
-  onShareClick,
+  onShareClick
 }: iNavbar) => {
   const { navLinks, socials, logo } = navSetup;
 
   const [openDD, setOpenDD] = useState(false);
   const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    window.onscroll = () => {
-      openDD && setOpenDD(false);
-    };
-  }, [openDD]);
 
   return (
     <div className={"container"}>
@@ -100,7 +94,7 @@ const CenteredNavbar = ({
         </div>
       </div>
       <div className="flex justify-center items-center font-regular text-[14px] d-sm-none mt-3">
-        {navLinks.map((each: iNavLink, i: number) =>
+        {navLinks.map((each: iNavLink, i: any) =>
           each.type !== "dropdown" ? (
             !each.newTab ? (
               <LinkTo
@@ -114,7 +108,7 @@ const CenteredNavbar = ({
             ) : (
               <a
                 href={each.path}
-                key={i}
+                key={each.path}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mx-2 flex-wrap font-normal	"
@@ -124,7 +118,6 @@ const CenteredNavbar = ({
             )
           ) : (
             <NavCatergoryDD
-              key={i}
               label={each.label}
               openDD={openDD}
               setOpenDD={() => setOpenDD(!openDD)}

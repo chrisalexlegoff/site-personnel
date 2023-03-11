@@ -22,12 +22,6 @@ const SimpleNavbar = ({
   const [openDD, setOpenDD] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
-    window.onscroll = () => {
-      openDD && setOpenDD(false);
-    };
-  }, [openDD]);
-
   return (
     <div
       className={combineClasses(
@@ -56,7 +50,7 @@ const SimpleNavbar = ({
                     ? transformImagePaths(logo.logoLight)
                     : transformImagePaths(logo.logo)
                 }
-                alt="Christophe Le Goff"
+                alt="WebExpe"
                 className="cursor-pointer"
                 width="100px"
               />
@@ -81,7 +75,7 @@ const SimpleNavbar = ({
                 <LinkTo
                   external
                   href={each.path}
-                  key={i}
+                  key={each.path + 1}
                   className="d-block mx-2 flex-wrap"
                 >
                   {each.label}
@@ -100,15 +94,15 @@ const SimpleNavbar = ({
           {socials && (
             <div className="ml-5 pt-1">
               {socials.map((each: iNavSocials, i: any) => (
-                <LinkTo
-                  external
-                  underline={false}
+                <a
                   href={each.link}
                   key={i}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[18px] inline-block mr-4"
                 >
                   {each.icon}
-                </LinkTo>
+                </a>
               ))}
             </div>
           )}

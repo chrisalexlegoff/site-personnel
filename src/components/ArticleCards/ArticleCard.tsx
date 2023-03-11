@@ -91,7 +91,7 @@ const ArticleCard = ({ article, path }: IProp) => {
               passHref
               className={combineClasses(
                 classes.author_name,
-                "text-sm font-medium"
+                "font-medium text-[14px] md:text-[16px] hover:text-blue-600"
               )}
             >
               {article.author.name}

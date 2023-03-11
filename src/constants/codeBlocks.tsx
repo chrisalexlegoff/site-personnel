@@ -289,7 +289,7 @@ export const rightSideAdCode = `
 
 export const Article_Entry_inList = `
     // Import author profiles, just type the name you have set in _BLOG_SETUP inside the curly brackets
-    import { MAYUR, RUPALI } from './_BLOG_SETUP';
+    import { CHRISTOPHE } from './_BLOG_SETUP';
 
     // file --> /BLOG_CONSTANTS/_ARTICLE_LIST.tsx
     export const ARTICLES: iArticle[] = [
@@ -299,7 +299,7 @@ export const Article_Entry_inList = `
             featureArticle: true,
             preview: {
                 // the author object you created in _BLOG_SETUP file
-                author: MAYUR,
+                author: CHRISTOPHE,
                 date: "August 6 2022",
                 articleTitle: "Your first article",
                 shortIntro: "This is a demo file for your first article, you can copy structure of this file to create multile article.",
@@ -313,7 +313,7 @@ export const Article_Entry_inList = `
                     "This is a demo file for your first article, you can copy structure of this file to create multile article.",
                 keywords: "demo, blog setup, first article",
                 ogImage: "/images/tutorials/demo-image.jpg",
-                twitterHandle: "@mayur_nalwala",
+                twitterHandle: "@CHRISTOPHE_nalwala",
             }
         },
         ...

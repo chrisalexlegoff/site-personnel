@@ -175,7 +175,7 @@ const About = () => {
           <Text p className="text-lg">
             Créé par{" "}
             <LinkTo
-              href="https://www.linkedin.com/in/rupali-yadav-087bb4112/"
+              href="https://www.linkedin.com/in/CHRISTOPHE-yadav-087bb4112/"
               external
               className="font-semibold"
             >

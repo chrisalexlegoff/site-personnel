@@ -16,11 +16,6 @@ const NavCatergoryDD = ({
   label,
   floating = false,
 }: INavCatergoryDD) => {
-  useEffect(() => {
-    window.onscroll = () => {
-      openDD && setOpenDD(false);
-    };
-  }, [openDD]);
   const CATEGORIES = getCategories();
   return (
     <>
@@ -36,6 +31,7 @@ const NavCatergoryDD = ({
           <BiChevronDown className="text-[20px]" />
         </div>
         <div
+          onMouseLeave={() => setOpenDD(!openDD)}
           className={combineClasses(
             "overflow-auto",
             floating

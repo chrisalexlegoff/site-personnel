@@ -14,7 +14,7 @@ const CenteredNavbar = ({
   toggleSideMenu,
   openSidebar = false,
   navSetup,
-  onShareClick
+  onShareClick,
 }: iNavbar) => {
   const { navLinks, socials, logo } = navSetup;
 
@@ -78,10 +78,9 @@ const CenteredNavbar = ({
         <div className="flex justify-end" style={{ width: "120px" }}>
           {socials &&
             socials.map((each: iNavSocials, i: any) => (
-              <a
+              <LinkTo
+                external
                 href={each.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 key={each.link}
                 className={combineClasses(
                   "dark:text-white text-black text-[24px] d-inline-block",
@@ -89,7 +88,7 @@ const CenteredNavbar = ({
                 )}
               >
                 {each.icon}
-              </a>
+              </LinkTo>
             ))}
         </div>
       </div>
@@ -106,15 +105,14 @@ const CenteredNavbar = ({
                 {each.label}
               </LinkTo>
             ) : (
-              <a
+              <LinkTo
+                external
                 href={each.path}
                 key={each.path}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="block mx-2 flex-wrap font-normal	"
               >
                 {each.label}
-              </a>
+              </LinkTo>
             )
           ) : (
             <NavCatergoryDD

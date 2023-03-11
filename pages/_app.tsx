@@ -1,13 +1,10 @@
 import "../src/styles/globals.scss";
-
 import type { AppProps } from "next/app";
 import Head from "next/head";
-
 import { NextSeo } from "next-seo";
 import Script from "next/script";
 import * as gtag from "../google";
 import { useEffect, useState } from "react";
-import { CREATE_SEO_CONFIG } from "../src/utils/utils";
 import { ThemeProvider } from "next-themes";
 
 import "@uiw/react-textarea-code-editor/dist.css";
@@ -21,12 +18,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setMounted(true);
   }, []);
-  let SEO_CONFIG = CREATE_SEO_CONFIG({});
 
   if (!mounted && env === "development") return null;
   return (
     <>
-      <NextSeo {...SEO_CONFIG} />
       <Head>
         <meta
           name="viewport"

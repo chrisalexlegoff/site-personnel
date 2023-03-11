@@ -1,14 +1,12 @@
 /**These are necessary imports / components for the page */
-import { PageLayout, Text, LinkTo } from "../src/components";
+import { PageLayout, Text, LinkTo, Seperator } from "../src/components";
 import ArticleCard from "../src/components/ArticleCards/ArticleCard";
-import { SORTED_ARTICLES_BY_DATE } from "../BLOG_CONSTANTS/_ARTICLES_LIST";
-import { DEFAULT_SEO } from "../BLOG_CONSTANTS/_BLOG_SETUP";
 import FeaturedArticleSection from "../src/components/Misc/FeaturedArticleSection";
-import HomeNonFeatureArticles from "../src/components/Misc/HomeNonFeatureAricles";
+import HomeNonFeatureArticles from "../src/components/Misc/HomeNonFeatureArticles";
 
 const Home = () => {
   return (
-    <PageLayout home PAGE_SEO={DEFAULT_SEO}>
+    <PageLayout home>
       <section className="w-full md:pt-[100px] md:pb-[70px] pt-[130px] pb-20 mb-10 dark:bg-slate-800 bg-slate-200">
         <div className="container text-center px-3">
           <Text title className="text-3xl">
@@ -31,7 +29,7 @@ const Home = () => {
             </LinkTo>
             <LinkTo
               underline={false}
-              href="/pages/a-propos.tsx"
+              href="/a-propos"
               passHref
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"
             >
@@ -39,7 +37,7 @@ const Home = () => {
             </LinkTo>
             <LinkTo
               underline={false}
-              href="/pages/blog"
+              href="/blog"
               passHref
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"
             >
@@ -47,7 +45,7 @@ const Home = () => {
             </LinkTo>
             <LinkTo
               underline={false}
-              href="/pages/blog/?category=tutorial"
+              href="/tutoriels"
               passHref
               className="flex items-center justify-center rounded-md bg-blue-600 px-4 pb-2 text-white hover:text-white shadow-lg hover:shadow-none transition-all mb-3 md:mx-5 mx-2"
             >
@@ -68,7 +66,14 @@ const Home = () => {
         <div className={"flex flex-wrap"}>
           <FeaturedArticleSection />
           <h1 className="px-3 w-full mb-5 text-xl md:text-3xl font-medium">
-            Voir le reste des articles, tutoriels et autres contenus de mon site
+            Voir les autres articles
+          </h1>
+          <hr className="border-1 mb-5 w-[98%] mx-auto" />
+          <HomeNonFeatureArticles />
+          <Seperator />
+          {/* TODO: METTRE UN FILTRE !! */}
+          <h1 className="px-3 w-full mb-5 text-xl md:text-3xl font-medium">
+            Voir les autres tutoriels
           </h1>
           <hr className="border-1 mb-5 w-[98%] mx-auto" />
           <HomeNonFeatureArticles />

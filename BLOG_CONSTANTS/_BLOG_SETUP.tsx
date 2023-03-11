@@ -34,6 +34,7 @@ import {
 
 export const CHRISTOPHE: IAuthor = {
   name: "Christophe Le Goff",
+  slug: "christophe-le-goff",
   designation: "Développeur NodeJs Full Stack",
   bio: "Je suis un développeur freelance web Full Stack passionné ayant une expérience dans la création de sites web et applications avec les framework React.js, Next.js, ExpressJS, le CMS HeadLess Strapi et l'administration de bases de données.",
   profilePic: "",
@@ -63,7 +64,6 @@ export const CHRISTOPHE: IAuthor = {
 
 // This can your company name / your name etc for SEO purposes
 export const WEBSITE_NAME: string = "Christophe Le Goff";
-export const WEBSITE_URL: string = "https://christophe-le-goff.fr/";
 
 /**
  * This is the main navigation setup.
@@ -90,7 +90,7 @@ export const PRIMARY_NAV: iNavSetup = {
     },
     {
       // for categories don't add path and add type: dropdown and pass path empty
-      label: "Blog",
+      label: "Shortcuts",
       type: "dropdown",
       path: "",
     },
@@ -122,7 +122,7 @@ export const PRIMARY_NAV: iNavSetup = {
     },
     {
       // for categories dont add path and add type: dropdown
-      label: "Blog",
+      label: "Shortcuts",
       type: "dropdown",
       path: "",
     },
@@ -167,16 +167,4 @@ export const PRIMARY_NAV: iNavSetup = {
       icon: <AiOutlineLinkedin />,
     },
   ],
-};
-
-export const DEFAULT_SEO: iSEO = {
-  title: "Christophe Le Goff",
-  description:
-    "Site personnel de Christophe Le Goff développeur freelance full stack spécialisé dans la conception de sites web et applications en javascript - typescript.",
-  keywords:
-    "Blog, next js, template, next js blog, blog setup, typescript, nextjs typescript, react js blog template, responsive blog template",
-  url: WEBSITE_URL,
-  author: `${CHRISTOPHE.name}`,
-  twitterHandle: "@chrisalexlegoff",
-  ogImage: "/public/images/og-image.jpg",
 };

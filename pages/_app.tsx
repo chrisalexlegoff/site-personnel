@@ -1,7 +1,6 @@
 import "../src/styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { NextSeo } from "next-seo";
 import Script from "next/script";
 import * as gtag from "../google";
 import { useEffect, useState } from "react";

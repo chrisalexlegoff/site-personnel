@@ -4,7 +4,6 @@ import {
   combineClasses,
   isDesktopDevice,
   transformImagePaths,
-  transformPath,
 } from "../../utils/utils";
 import LinkTo from "../LinkTo";
 import Avatar from "./Avatar";
@@ -64,7 +63,7 @@ const ArticleMoreFromAuthor = ({
           </p>
           <div className={articleGrid ? "flex flex-wrap" : ""}>
             {relatedArticles.slice(0, 3).map((each, i) => (
-              <Link href={transformPath(each.path)} key={i} passHref>
+              <Link href={each.path} key={i} passHref>
                 <div
                   className={combineClasses(
                     "mb-3 cursor-pointer",
@@ -72,14 +71,7 @@ const ArticleMoreFromAuthor = ({
                   )}
                   key={each.path}
                 >
-                  <div
-                    className="
-                                            rounded-[3px] dark:bg-slate-800
-                                            border border-slate-200 dark:border-slate-900
-                                            flex items-center overflow-hidden
-                                            shadow-lg hover:shadow-md
-                                        "
-                  >
+                  <div className="rounded-[3px] dark:bg-slate-800 border border-slate-200 dark:border-slate-900 flex items-center overflow-hidden shadow-lg hover:shadow-md">
                     <div className={"object-cover shrink-0"}>
                       <img
                         src={transformImagePaths(each.preview.thumbnail)}

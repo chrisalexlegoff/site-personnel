@@ -9,7 +9,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="fr" translate="no">
+      <Html lang="fr" translate="no" className="scroll-smooth select-none">
         <Head>
           <Favicons />
         </Head>

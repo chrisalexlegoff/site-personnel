@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>http://localhost:3001/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/a-propos/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/blog/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/blog/your-first-article/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/contact/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/privacy-policy/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/terms-and-condition/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/all-components/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/blog-with-centered-layout/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/blog-with-sidebar-layout/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/home-layout/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/how-to-deploy-blog/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/how-to-setup-blog/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/how-to-write-your-first-article/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/icons/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3001/tutorial/style-guide/</loc><lastmod>2023-03-11T10:20:54.772Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>

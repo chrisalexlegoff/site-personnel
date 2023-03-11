@@ -100,7 +100,7 @@ const CenteredNavbar = ({
         </div>
       </div>
       <div className="flex justify-center items-center font-regular text-[14px] d-sm-none mt-3">
-        {navLinks.map((each: iNavLink, i: any) =>
+        {navLinks.map((each: iNavLink, i: number) =>
           each.type !== "dropdown" ? (
             !each.newTab ? (
               <LinkTo
@@ -114,7 +114,7 @@ const CenteredNavbar = ({
             ) : (
               <a
                 href={each.path}
-                key={each.path}
+                key={i}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mx-2 flex-wrap font-normal	"
@@ -124,6 +124,7 @@ const CenteredNavbar = ({
             )
           ) : (
             <NavCatergoryDD
+              key={i}
               label={each.label}
               openDD={openDD}
               setOpenDD={() => setOpenDD(!openDD)}

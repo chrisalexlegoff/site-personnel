@@ -109,63 +109,63 @@ const NavSidebar = ({
                 Examples and tutorials
               </Text>
               <LinkTo
-                href="/pages/tutorial/all-components.tsx"
+                href="/tutoriels/all-components.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 All Components
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/style-guide.tsx"
+                href="/tutoriels/style-guide.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 Style Guide
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/home-layout.tsx"
+                href="/tutoriels/home-layout.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 Home Page Layout
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/blog-with-sidebar-layout.tsx"
+                href="/tutoriels/blog-with-sidebar-layout.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 Page Layout for article with sidebar
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/blog-with-centered-layout.tsx"
+                href="/tutoriels/blog-with-centered-layout.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 Page Layout for centered article
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/how-to-setup-blog.tsx"
+                href="/tutoriels/how-to-setup-blog.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 How to setup your blog
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/how-to-write-your-first-article.tsx"
+                href="/tutoriels/how-to-write-your-first-article.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 How to write your first article
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/how-to-deploy-blog.tsx"
+                href="/tutoriels/how-to-deploy-blog.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >
                 How to export the blog
               </LinkTo>
               <LinkTo
-                href="/pages/tutorial/icons.tsx"
+                href="/tutoriels/icons.tsx"
                 passHref
                 className="text-[16px] block my-3"
               >

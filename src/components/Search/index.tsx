@@ -2,8 +2,9 @@ import { useState } from "react";
 import { combineClasses } from "../../utils/utils";
 import classes from "./Search.module.scss";
 import SearchArticleCard from "../ArticleCards/SearchArticleCard";
-import { SORTED_ARTICLES_BY_DATE } from "../../../BLOG_CONSTANTS/_ARTICLES_LIST";
+
 import { MdOutlineClose } from "react-icons/md";
+import { CHRISTOPHE } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
 
 interface ISearch {
   closeSearch: () => void;
@@ -12,7 +13,22 @@ const Search = ({ closeSearch }: ISearch) => {
   const [searchStr, setSearchStr] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const handleSearch = () => {
-    const data = [...SORTED_ARTICLES_BY_DATE];
+    const data = [
+      {
+        path: "/tutoriels/how-to-setup-blog.tsx",
+        featureArticle: true,
+        aVoirAbsolument: true,
+        preview: {
+          author: CHRISTOPHE,
+          date: "August 09 2022",
+          articleTitle: "How to setup this blog template",
+          tags: "demo, blog setup",
+          thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+          shortIntro: "These are the steps to setup your blog",
+          category: "tutorial",
+        },
+      },
+    ];
     const results = data.filter(
       (article) =>
         article.preview.tags

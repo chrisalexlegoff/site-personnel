@@ -1,27 +1,9 @@
 /**These are necessary imports / components for the page */
-import { ImageSize, TextAlign, ListType } from "../src/shared/enums";
-import {
-  PageLayout,
-  Text,
-  List,
-  Image,
-  LinkTo,
-  Seperator,
-  Slider,
-} from "../src/components";
-import { iSEO } from "../src/shared/interfaces";
+import { PageLayout, Text, LinkTo } from "../src/components";
 
 const Contact = () => {
-  const PAGE_SEO: iSEO = {
-    title: "Contact",
-    description:
-      "Pour toute question relative à ce site / autre, n'hésitez pas à me contacter: contact@christophe-le-goff.com",
-    keywords:
-      "christophe le goff, contact, contact@christophe-le-goff.com, next js blog",
-    author: "Christophe Le Goff",
-  };
   return (
-    <PageLayout PAGE_SEO={PAGE_SEO} home>
+    <PageLayout home>
       <section className="container px-3 pb-10 md:pt-20 pt-[80px]">
         <Text title className="!text-5xl !font-light">
           Contactez-moi
@@ -33,15 +15,15 @@ const Contact = () => {
               Pour toute question relative à ce site/projet, n'hésitez pas à me
               contacter à l'adresse e-mail indiquée. Vous pouvez également
               poster n'importe quel commentaires sur mon{" "}
-              <a
+              <LinkTo
+                external
+                underline={false}
                 href="https://github.com/chrisalexlegoff/site-personnel/discussions"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 <u>
                   <i>fil de discussions github</i>
                 </u>
-              </a>
+              </LinkTo>
               .
             </Text>
           </div>

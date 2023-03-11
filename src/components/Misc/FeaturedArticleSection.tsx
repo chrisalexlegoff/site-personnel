@@ -1,13 +1,30 @@
-import { SORTED_ARTICLES_BY_DATE } from "../../../BLOG_CONSTANTS/_ARTICLES_LIST";
+import { CHRISTOPHE } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
 import { iArticle } from "../../shared/interfaces";
 import FeaturedArticle from "../ArticleCards/FeaturedArticle";
 import Seperator from "../Seperator";
 import Text from "../Text";
 
 const FeaturedArticleSection = () => {
-  const featureArticles = SORTED_ARTICLES_BY_DATE.filter(
-    (article: iArticle) => article.featureArticle === true
-  ).slice(0, 3);
+  const featureArticles = [
+    {
+      path: "/tutoriels/how-to-setup-blog",
+      slug: "how-to-setup-blog",
+      featureArticle: true,
+      aVoirAbsolument: true,
+      preview: {
+        author: CHRISTOPHE,
+        date: "August 09 2022",
+        articleTitle: "How to setup this blog template",
+        tags: "demo, blog setup",
+        thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+        shortIntro: "These are the steps to setup your blog",
+        category: "tutoriels",
+      },
+    },
+  ];
+  // const featureArticles = SORTED_ARTICLES_BY_DATE.filter(
+  //   (article: iArticle) => article.featureArticle === true
+  // ).slice(0, 3);
   return featureArticles.length ? (
     <>
       <Text

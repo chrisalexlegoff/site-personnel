@@ -55,10 +55,10 @@ const SimpleNavbar = ({
                 width="100px"
               />
             ) : (
-              <a className="text-[22px] font-semibold">{logo.logo}</a>
+              <span className="text-[22px] font-semibold">{logo.logo}</span>
             )
           ) : (
-            <a className="text-[22px] font-semibold">Logo</a>
+            <span className="text-[22px] font-semibold">Logo</span>
           )}
         </LinkTo>
       </div>
@@ -94,15 +94,14 @@ const SimpleNavbar = ({
           {socials && (
             <div className="ml-5 pt-1">
               {socials.map((each: iNavSocials, i: any) => (
-                <a
+                <LinkTo
+                  external
                   href={each.link}
                   key={i}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-[18px] inline-block mr-4"
                 >
                   {each.icon}
-                </a>
+                </LinkTo>
               ))}
             </div>
           )}

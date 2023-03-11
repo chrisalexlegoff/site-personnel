@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { combineClasses, transformPath } from "../../utils/utils";
+import { combineClasses } from "../../utils/utils";
 
 interface iLinkTo {
   href: string;
@@ -24,7 +24,7 @@ const LinkTo = ({
     <>
       {newTab || external ? (
         <a
-          href={transformPath(href)}
+          href={href}
           className={`${className} w-fit`}
           target="_blank"
           rel="noopener noreferrer"
@@ -37,7 +37,7 @@ const LinkTo = ({
           </span>
         </a>
       ) : (
-        <Link href={transformPath(href)} passHref={passHref}>
+        <Link href={href} passHref={passHref}>
           <span
             className={combineClasses(
               `${className} w-fit cursor-pointer hover:text-blue-500`

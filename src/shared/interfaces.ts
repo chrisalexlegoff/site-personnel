@@ -1,6 +1,7 @@
 import { LogoType, NavbarType } from "./enums";
 
 export interface IAuthor {
+  slug: string;
   profilePic?: string;
   name: string;
   designation?: string;

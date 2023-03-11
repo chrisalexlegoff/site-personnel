@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { BiChevronDown } from "react-icons/bi";
-import { combineClasses, getCategories } from "../../utils/utils";
+import { combineClasses } from "../../utils/utils";
 import LinkTo from "../LinkTo";
 
 interface INavCatergoryDD {
@@ -16,7 +15,7 @@ const NavCatergoryDD = ({
   label,
   floating = false,
 }: INavCatergoryDD) => {
-  const CATEGORIES = getCategories();
+  const categories = ["Articles", "Tutoriels", "Auteurs", "Tags"];
   return (
     <>
       <div className={"relative"}>
@@ -40,15 +39,14 @@ const NavCatergoryDD = ({
             openDD ? "h-auto" : "h-0 border-0"
           )}
         >
-          <LinkTo href={"/blog"} passHref className="block text-sm py-2 px-2">
-            <span onClick={() => setOpenDD(!openDD)}>All Articles</span>
-          </LinkTo>
-          {CATEGORIES.map((each, i) => (
+          {categories.map((each, i) => (
             <LinkTo
-              href={"/blog?category=" + each}
+              href={each.toLowerCase()}
               key={i}
               passHref
-              className="block text-sm py-2 px-2 border-t border-gray-400"
+              className={`block text-sm py-2 px-2 ${
+                i !== 0 ? "border-t" : ""
+              } border-gray-400`}
             >
               <span
                 style={{ textTransform: "capitalize" }}

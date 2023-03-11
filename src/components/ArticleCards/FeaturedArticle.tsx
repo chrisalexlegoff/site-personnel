@@ -1,10 +1,6 @@
 import { IArticleHeaderData } from "../../shared/interfaces";
 import classes from "./ArticleCard.module.scss";
-import {
-  combineClasses,
-  transformImagePaths,
-  transformPath,
-} from "../../utils/utils";
+import { combineClasses, transformImagePaths } from "../../utils/utils";
 import LinkTo from "../LinkTo";
 import Avatar from "../Misc/Avatar";
 import ArticleCardCategory from "../Misc/ArticleCardCategory";
@@ -37,7 +33,7 @@ const FeaturedArticle = ({ article, path }: IProp) => {
               />
               <LinkTo
                 underline={false}
-                href={"/blog?author=" + article.author.name}
+                href={"/auteurs/" + article.author.slug}
                 passHref
                 className={combineClasses(
                   classes.author_name,
@@ -52,7 +48,7 @@ const FeaturedArticle = ({ article, path }: IProp) => {
             </div>
             <ArticleCardCategory category={article.category} />
           </div>
-          <LinkTo underline={false} href={transformPath(path)} passHref>
+          <LinkTo underline={false} href={path} passHref>
             <h1
               className={combineClasses(
                 classes.featured_article__title,

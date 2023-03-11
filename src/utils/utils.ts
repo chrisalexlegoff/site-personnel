@@ -1,9 +1,4 @@
 import { THEMES } from "../shared/enums";
-import { useRouter } from "next/router";
-import { SORTED_ARTICLES_BY_DATE } from "../../BLOG_CONSTANTS/_ARTICLES_LIST";
-import { iArticle, iSEO } from "../shared/interfaces";
-import { WEBSITE_NAME, WEBSITE_URL } from "../../BLOG_CONSTANTS/_BLOG_SETUP";
-import { MOCK_ARTICLES_LIST } from "../constants/mocks";
 import { GAEvent } from "../../google";
 
 // env
@@ -100,42 +95,6 @@ export const removeBodyNoScroll = (): void => {
 };
 
 /**
- * Returns Article details from SORTED_ARTICLES_BY_DATE wrt the path
- * @returns iArticle
- */
-export const getArticleDetails = (): iArticle => {
-  const router = useRouter();
-  const articlePath = "/pages" + router.pathname + ".tsx";
-  return (
-    MOCK_ARTICLES_LIST.filter((each) => each.path.includes(articlePath))[0] ||
-    SORTED_ARTICLES_BY_DATE.filter((each) => each.path.includes(articlePath))[0]
-  );
-};
-
-/**
- * Returns list of categories from SORTED_ARTICLES_BY_DATE
- * @returns string[]
- */
-export const getCategories = (): string[] => {
-  let categories: string[] = [];
-  SORTED_ARTICLES_BY_DATE.forEach((each) => {
-    if (each.preview.category && !categories.includes(each.preview.category)) {
-      categories.push(each.preview.category);
-    }
-  });
-  return categories;
-};
-
-/**
- * Removes /pages from article path
- * @param path
- * @returns
- */
-export const transformPath = (path = ""): string => {
-  return path.replace("/pages", "").replace(".tsx", "");
-};
-
-/**
  * Removes /public from images path
  * @param path
  * @returns string
@@ -145,106 +104,15 @@ export const transformImagePaths = (path = ""): string => {
 };
 
 /**
- * Creates SEO Config from ArticleDetails.preview || ArticleDetails.seo ||  PAGE_SEO
- * @param PAGE_SEO : iSEO
- * @returns SEO config
- */
-export const CREATE_SEO_CONFIG = (PAGE_SEO: iSEO) => {
-  /**
-   * We can create SEO Config from
-   * ARTICLE_DETAILS or SEO object passed in article list or layout
-   */
-  const router = useRouter();
-  const ARTICLE_DETAILS = getArticleDetails();
-
-  // set url and path
-  const origin =
-    typeof window !== "undefined" && window.location.origin
-      ? window.location.origin
-      : "";
-  const LOCAL_URL = IS_DEV_MODE ? origin : WEBSITE_URL ? WEBSITE_URL : origin;
-  const LOCAL_PATH = ARTICLE_DETAILS
-    ? transformPath(ARTICLE_DETAILS.path)
-    : router.asPath;
-
-  const meta_description =
-    ARTICLE_DETAILS?.preview?.shortIntro || PAGE_SEO.description;
-
-  const keywords = PAGE_SEO?.keywords || ARTICLE_DETAILS?.preview?.tags;
-  const ogUrl = `${LOCAL_URL}${LOCAL_PATH}`;
-
-  const ogImage = PAGE_SEO.ogImage
-    ? `${LOCAL_URL}${transformImagePaths(PAGE_SEO?.ogImage)}`
-    : `${LOCAL_URL}${
-        ARTICLE_DETAILS?.preview.thumbnail
-          ? transformImagePaths(ARTICLE_DETAILS?.preview.thumbnail)
-          : null
-      }`;
-
-  const twitterHandle = PAGE_SEO?.twitterHandle || "";
-  const author = ARTICLE_DETAILS
-    ? ARTICLE_DETAILS?.preview.author.name
-    : PAGE_SEO?.author;
-  const title =
-    router.asPath === "/"
-      ? `${
-          ARTICLE_DETAILS
-            ? ARTICLE_DETAILS?.preview?.articleTitle
-            : PAGE_SEO?.title
-        } ${author != "Christophe Le Goff" ? "| " + author : ""}`
-      : `${
-          ARTICLE_DETAILS
-            ? ARTICLE_DETAILS?.preview?.articleTitle
-            : PAGE_SEO?.title
-        } | ${WEBSITE_NAME} ${
-          author != "Christophe Le Goff" ? "| " + author : ""
-        }`;
-
-  let seo_config = {
-    title: title,
-    description: meta_description,
-    canonical: ogUrl,
-    additionalMetaTags: [
-      {
-        property: "keywords",
-        content: keywords,
-      },
-      {
-        property: "al:web:url",
-        content: ogUrl,
-      },
-    ],
-    openGraph: {
-      type: "website",
-      locale: "fr_FR",
-      url: ogUrl,
-      site_name: WEBSITE_NAME,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      handle: twitterHandle,
-      site: ogUrl,
-      cardType: "summary_large_image",
-    },
-  };
-  return seo_config;
-};
-
-/**
  * Share link or article method
  * @returns false if desktop else open share window on mobile devices
  */
 export const webShare = () => {
   const pageTitle = document.title;
   const url =
-    typeof window !== "undefined" ? window.location.href : WEBSITE_URL;
+    typeof window !== "undefined"
+      ? window.location.href
+      : process.env.NEXT_PUBLIC_URL;
 
   GAEvent({
     action: "share_clicked",

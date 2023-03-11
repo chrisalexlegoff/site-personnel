@@ -35,15 +35,14 @@ const ArticleMoreFromAuthor = ({
         {author.social?.length && (
           <div className="flex items-center flex-wrap mt-3">
             {author.social.map((each, i) => (
-              <a
+              <LinkTo
+                external
                 href={each.link}
                 key={i}
-                target="_blank"
                 className="mr-[15px] text-[32px]"
-                rel="noopener noreferrer"
               >
                 {each.icon}
-              </a>
+              </LinkTo>
             ))}
           </div>
         )}

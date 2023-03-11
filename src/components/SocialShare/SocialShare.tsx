@@ -1,13 +1,14 @@
 import { BsLinkedin, BsLink45Deg, BsXLg } from "react-icons/bs";
 import { AiFillTwitterCircle, AiFillFacebook } from "react-icons/ai";
-import { WEBSITE_URL } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
 import { combineClasses } from "../../utils/utils";
 import { useEffect, useState } from "react";
 import { GAEvent } from "../../../google";
 
 const SocialShare = () => {
   const url =
-    typeof window !== "undefined" ? window.location.href : WEBSITE_URL;
+    typeof window !== "undefined"
+      ? window.location.href
+      : process.env.NEXT_PUBLIC_URL;
 
   const twitterShare = `http://twitter.com/share?text=Check out this article!! &url=${url}&hashtags=webdevelopment,javacript,javascriptdaily,webdevelopmenttutorial,tutorial`;
   const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${url}`;

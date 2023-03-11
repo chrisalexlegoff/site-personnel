@@ -7,7 +7,6 @@ export const AVoirAbsoluement = () => {
   const aVoirAbsolumentArticles = SORTED_ARTICLES_BY_DATE.filter(
     (article: iArticle) => article.aVoirAbsolument === true
   ).slice(0, 4);
-  console.log(aVoirAbsolumentArticles);
   return aVoirAbsolumentArticles.length ? (
     <>
       <hr />

@@ -57,7 +57,6 @@ const About = () => {
             <br />
             N'hésitez pas à me contacter pour participer ou simplement discuter{" "}
             <LinkTo
-              block
               underline={false}
               external
               href="mailto:contact@christophe-le-goff.com"
@@ -145,7 +144,7 @@ const About = () => {
             <Text p className="text-lg">
               Développement full stack en partenariat avec la designer Sabrina
               Dos Santos:{" "}
-              <LinkTo block external href="https://sabrina-dossantos.fr">
+              <LinkTo external href="https://sabrina-dossantos.fr">
                 https://sabrina-dossantos.fr
               </LinkTo>
               <br />
@@ -153,17 +152,13 @@ const About = () => {
             <List type={ListType.none}>
               <li>
                 🌍 Visitez mon portfolio:{" "}
-                <LinkTo block external href="https://christophe-le-goff.fr">
+                <LinkTo external href="https://christophe-le-goff.fr">
                   https://christophe-le-goff.fr
                 </LinkTo>
               </li>
               <li>
                 💣 Mon 𝗚𝗶𝘁𝗵𝘂𝗯:{" "}
-                <LinkTo
-                  block
-                  external
-                  href="https://github.com/chrisalexlegoff"
-                >
+                <LinkTo external href="https://github.com/chrisalexlegoff">
                   https://github.com/chrisalexlegoff
                 </LinkTo>
               </li>
@@ -180,7 +175,6 @@ const About = () => {
           <Text p className="text-lg">
             Créé par{" "}
             <LinkTo
-              block
               href="https://www.linkedin.com/in/rupali-yadav-087bb4112/"
               external
               className="font-semibold"
@@ -206,7 +200,6 @@ const About = () => {
               contacter à l'adresse e-mail indiquée. Vous pouvez également
               poster n'importe quel commentaires sur mon{" "}
               <LinkTo
-                block
                 underline={false}
                 external
                 href="https://github.com/chrisalexlegoff/site-personnel/discussions"

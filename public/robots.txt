@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Disallow: /404
+Disallow: /maintenance
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: http://localhost:3001
+
+# Sitemaps
+Sitemap: http://localhost:3001/sitemap.xml

@@ -1,5 +1,5 @@
-const Auteurs = () => {
-  return <h1>Auteurs</h1>;
+const authors = () => {
+  return <h1>authors</h1>;
 };
 
-export default Auteurs;
+export default authors;

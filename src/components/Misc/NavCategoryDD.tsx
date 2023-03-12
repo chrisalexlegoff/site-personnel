@@ -15,7 +15,7 @@ const NavCatergoryDD = ({
   label,
   floating = false,
 }: INavCatergoryDD) => {
-  const categories = ["Articles", "Tutoriels", "Auteurs", "Tags"];
+  const categories = ["Articles", "Tutoriels", "Auteurs"];
   return (
     <>
       <div className={"relative"}>

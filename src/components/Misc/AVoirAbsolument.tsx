@@ -18,7 +18,7 @@ export const AVoirAbsoluement = () => {
         date: "August 09 2022",
         articleTitle: "How to setup this blog template",
         tags: "demo, blog setup",
-        thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+        thumbnail: "/public/imp_assets/og-image.jpg",
         shortIntro: "These are the steps to setup your blog",
         category: "tutoriels",
       },

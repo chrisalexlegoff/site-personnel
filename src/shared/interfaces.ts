@@ -7,10 +7,11 @@ export interface IAuthor {
   designation?: string;
   bio?: string;
   social?: iNavSocials[];
+  InscriptionDate: Date;
 }
 
 export interface IArticleHeaderData {
-  author: IAuthor;
+  author: string;
   date: string;
   articleTitle: string;
   tags: string;

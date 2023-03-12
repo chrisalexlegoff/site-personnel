@@ -1,5 +1,10 @@
+// import PageLayout from components
+import { PageLayout } from "../../src/components";
 const Article = () => {
-  return <h1>Article</h1>;
+  return (
+    // pass blogwithsidebar as shown
+    <PageLayout blogwithsidebar>test</PageLayout>
+  );
 };
 
 export default Article;

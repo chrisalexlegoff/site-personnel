@@ -1,4 +1,4 @@
-import { IArticleHeaderData } from "../../shared/interfaces";
+import { IArticleHeaderData, IAuthor } from "../../shared/interfaces";
 import { combineClasses } from "../../utils/utils";
 import LinkTo from "../LinkTo";
 import ArticleCardCategory from "../Misc/ArticleCardCategory";
@@ -7,10 +7,12 @@ import Avatar from "../Misc/Avatar";
 import classes from "./ArticleCard.module.scss";
 
 const SerachArticleCard = ({
+  author,
   article,
   path,
 }: {
   article: IArticleHeaderData;
+  author: IAuthor;
   path: string;
 }) => (
   <div className="w-full lg:w-1/3 md:w-1/2 px-3 mb-10">
@@ -43,19 +45,19 @@ const SerachArticleCard = ({
         <div className={"flex items-center mt-3"}>
           <div className="flex items-center">
             <Avatar
-              author={article.author}
+              author={author}
               className="w-[40px] h-[40px] mr-3 text-xl"
             />
             <LinkTo
               underline={false}
-              href={"/blog?author=" + article.author.name}
+              href={"/auteurs/" + author.slug}
               passHref
               className={combineClasses(
                 classes.author_name,
                 "font-medium text-[14px] md:text-[16px] hover:text-blue-600"
               )}
             >
-              {article.author.name}
+              {author.name}
             </LinkTo>
             {/* <p className={combineClasses(classes.author_name, 'text-sm font-medium')}>
               {article.author.name}

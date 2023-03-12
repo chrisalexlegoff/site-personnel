@@ -40,10 +40,10 @@ const LinkTo = ({
         <Link href={href} passHref={passHref}>
           <span
             className={combineClasses(
-              `${className} w-fit cursor-pointer hover:text-blue-500`
+              `${className} cursor-pointer hover:text-blue-500`
             )}
           >
-            <span className="group relative w-fit">
+            <span className="group relative">
               {children}
               {underline && (
                 <span className="absolute -bottom-0.5 left-0 h-[1px] w-0 group-hover:w-full group-focus:w-full bg-blue-500 duration-300 ease-in-scroll"></span>

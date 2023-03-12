@@ -1,6 +1,10 @@
-import { IArticleHeaderData } from "../../shared/interfaces";
+import { IArticleHeaderData, IAuthor } from "../../shared/interfaces";
 import classes from "./ArticleCard.module.scss";
-import { combineClasses, transformImagePaths } from "../../utils/utils";
+import {
+  combineClasses,
+  dateToFr,
+  transformImagePaths,
+} from "../../utils/utils";
 import LinkTo from "../LinkTo";
 import Avatar from "../Misc/Avatar";
 import ArticleCardCategory from "../Misc/ArticleCardCategory";
@@ -8,10 +12,11 @@ import ArticleTags from "../Misc/ArticleTags";
 
 interface IProp {
   article: IArticleHeaderData;
+  author: IAuthor;
   path: string;
 }
 
-const FeaturedArticle = ({ article, path }: IProp) => {
+const FeaturedArticle = ({ article, path, author }: IProp) => {
   return (
     <>
       <div
@@ -28,19 +33,19 @@ const FeaturedArticle = ({ article, path }: IProp) => {
           <div className={"mt-0 mb-[10px] flex items-center"}>
             <div className={"flex items-center"}>
               <Avatar
-                author={article.author}
+                author={author}
                 className="w-[50px] h-[50px] mr-3 text-xl"
               />
               <LinkTo
                 underline={false}
-                href={"/auteurs/" + article.author.slug}
+                href={"/auteurs/" + author.slug}
                 passHref
                 className={combineClasses(
                   classes.author_name,
                   "text-[14px] md:text-[16px] my-0 font-medium"
                 )}
               >
-                {article.author.name}
+                {author.name}
               </LinkTo>
               {/* <p className={combineClasses(classes.author_name, 'text-[14px] md:text-[16px] my-0 font-medium')}>
                                 {article.author.name}
@@ -48,7 +53,7 @@ const FeaturedArticle = ({ article, path }: IProp) => {
             </div>
             <ArticleCardCategory category={article.category} />
           </div>
-          <LinkTo underline={false} href={path} passHref>
+          <LinkTo underline={false} href={article.category + path} passHref>
             <h1
               className={combineClasses(
                 classes.featured_article__title,
@@ -73,7 +78,7 @@ const FeaturedArticle = ({ article, path }: IProp) => {
               "font-normal text-xs pt-3 mb-0"
             )}
           >
-            {article.date}
+            {dateToFr({ date: article.date })}
           </p>
         </div>
         <div

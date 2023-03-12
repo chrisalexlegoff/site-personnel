@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import ReadingProgress from "../../components/ReadingProgress";
-import { iSEO } from "../../shared/interfaces";
+import { iArticle, IAuthor, iSEO } from "../../shared/interfaces";
 import Centered from "./BlogCentered";
 import WithSidebar from "./BlogWithSidebar";
 import HomeLayout from "./HomeLayout";
@@ -13,6 +13,8 @@ interface IBlogLayout {
   blogcentered?: boolean;
   home?: boolean;
   ads?: string[];
+  articlesTab?: iArticle[];
+  authorsTab?: IAuthor[];
 }
 
 const PageLayout = ({
@@ -22,6 +24,8 @@ const PageLayout = ({
   blogcentered = false,
   home = false,
   ads = [],
+  articlesTab,
+  authorsTab,
 }: IBlogLayout) => {
   const target = React.createRef<HTMLDivElement>();
 
@@ -31,13 +35,30 @@ const PageLayout = ({
         <Navbar />
         <ReadingProgress target={target} />
         {blogwithsidebar ? (
-          <WithSidebar children={children} ads={ads} />
+          <WithSidebar
+            articlesTab={articlesTab}
+            authorsTab={authorsTab}
+            children={children}
+            ads={ads}
+          />
         ) : blogcentered ? (
-          <Centered children={children} />
+          <Centered
+            authorsTab={authorsTab}
+            articlesTab={articlesTab}
+            children={children}
+          />
         ) : home ? (
-          <HomeLayout children={children} />
+          <HomeLayout
+            authorsTab={authorsTab}
+            articlesTab={articlesTab}
+            children={children}
+          />
         ) : (
-          <HomeLayout children={children} />
+          <HomeLayout
+            authorsTab={authorsTab}
+            articlesTab={articlesTab}
+            children={children}
+          />
         )}
       </div>
     </>

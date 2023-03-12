@@ -5,10 +5,17 @@ import ArticleHeader from "../../components/ArticleHeader";
 import Avatar from "../../components/Misc/Avatar";
 import ArticleMoreFromAuthor from "../../components/Misc/ArticleMoreFromAuthor";
 import { CHRISTOPHE } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
+import { iArticle, IAuthor } from "../../shared/interfaces";
 
-const Centered = ({ children }: any) => {
+interface centeredProps {
+  children: React.ReactNode;
+  articlesTab?: iArticle[];
+  authorsTab?: IAuthor[];
+}
+
+const Centered = ({ children, articlesTab, authorsTab }: centeredProps) => {
   const ARTICLE_DETAILS = {
-    path: "/tutoriels/how-to-setup-blog.tsx",
+    path: "/how-to-setup-blog.tsx",
     featureArticle: true,
     aVoirAbsolument: true,
     preview: {
@@ -16,7 +23,7 @@ const Centered = ({ children }: any) => {
       date: "August 09 2022",
       articleTitle: "How to setup this blog template",
       tags: "demo, blog setup",
-      thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+      thumbnail: "/public/imp_assets/og-image.jpg",
       shortIntro: "These are the steps to setup your blog",
       category: "tutorial",
     },
@@ -25,7 +32,7 @@ const Centered = ({ children }: any) => {
   // const relatedArticles = SORTED_ARTICLES_BY_DATE.filter((each) => each.preview.author === author);
   const relatedArticles = [
     {
-      path: "/tutoriels/how-to-setup-blog.tsx",
+      path: "/how-to-setup-blog.tsx",
       featureArticle: true,
       aVoirAbsolument: true,
       preview: {
@@ -33,7 +40,7 @@ const Centered = ({ children }: any) => {
         date: "August 09 2022",
         articleTitle: "How to setup this blog template",
         tags: "demo, blog setup",
-        thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+        thumbnail: "/public/imp_assets/og-image.jpg",
         shortIntro: "These are the steps to setup your blog",
         category: "tutorial",
       },

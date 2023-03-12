@@ -1,5 +1,6 @@
 import { THEMES } from "../shared/enums";
 import { GAEvent } from "../../google";
+import { iArticle } from "../shared/interfaces";
 
 // env
 const env = process.env.NODE_ENV;
@@ -164,4 +165,40 @@ export const hideNavWhileScrolling = ({
       prevScrollPos = curScrollPos;
     }
   };
+};
+
+interface articlesTabProps {
+  articlesTab: iArticle[];
+}
+/**
+ * Trier les articles: anciens > récents
+ * @returns Tableau d'articles
+ */
+export const sortTableauParDate = ({ articlesTab }: articlesTabProps) => {
+  return articlesTab.sort((a, b) =>
+    new Date(a.preview.date) > new Date(b.preview.date) ? -1 : 1
+  );
+};
+
+/**
+ * Transfo. Date FR
+ * @returns Date
+ */
+export const dateToFr = ({ date }: any) => {
+  let dateAr = new Date(date).toLocaleDateString().split("/");
+  const mois = [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Aout",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre",
+  ];
+  return `${dateAr[0]} ${mois[parseInt(dateAr[1]) - 1]} ${dateAr[2]}`;
 };

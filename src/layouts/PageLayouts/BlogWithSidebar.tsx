@@ -3,8 +3,21 @@ import { combineClasses } from "../../utils/utils";
 import ArticleHeader from "../../components/ArticleHeader";
 import ArticleMoreFromAuthor from "../../components/Misc/ArticleMoreFromAuthor";
 import { CHRISTOPHE } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
+import { iArticle, IAuthor } from "../../shared/interfaces";
 
-const WithSidebar = ({ children, ads }: { children: any; ads?: string[] }) => {
+interface withSidebarProps {
+  children: React.ReactNode;
+  articlesTab?: iArticle[];
+  authorsTab?: IAuthor[];
+  ads?: string[];
+}
+
+const WithSidebar = ({
+  children,
+  ads,
+  articlesTab,
+  authorsTab,
+}: withSidebarProps) => {
   // const ARTICLE_DETAILS = getArticleDetails();
   // const author = ARTICLE_DETAILS.preview.author;
   // const relatedArticles = SORTED_ARTICLES_BY_DATE.filter((each) => each.preview.author === author);
@@ -12,7 +25,7 @@ const WithSidebar = ({ children, ads }: { children: any; ads?: string[] }) => {
   // const relatedArticles = SORTED_ARTICLES_BY_DATE.filter((each) => each.preview.author === author);
   const relatedArticles = [
     {
-      path: "/tutoriels/how-to-setup-blog.tsx",
+      path: "/how-to-setup-blog.tsx",
       featureArticle: true,
       aVoirAbsolument: true,
       preview: {
@@ -20,14 +33,14 @@ const WithSidebar = ({ children, ads }: { children: any; ads?: string[] }) => {
         date: "August 09 2022",
         articleTitle: "How to setup this blog template",
         tags: "demo, blog setup",
-        thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+        thumbnail: "/public/imp_assets/og-image.jpg",
         shortIntro: "These are the steps to setup your blog",
         category: "tutorial",
       },
     },
   ];
   const ARTICLE_DETAILS = {
-    path: "/tutoriels/how-to-setup-blog.tsx",
+    path: "/how-to-setup-blog.tsx",
     featureArticle: true,
     aVoirAbsolument: true,
     preview: {
@@ -35,7 +48,7 @@ const WithSidebar = ({ children, ads }: { children: any; ads?: string[] }) => {
       date: "August 09 2022",
       articleTitle: "How to setup this blog template",
       tags: "demo, blog setup",
-      thumbnail: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+      thumbnail: "/public/imp_assets/og-image.jpg",
       shortIntro: "These are the steps to setup your blog",
       category: "tutorial",
     },

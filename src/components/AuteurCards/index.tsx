@@ -1,23 +1,33 @@
 import LinkTo from "../LinkTo";
-import { IArticleHeaderData, IAuthor } from "../../shared/interfaces";
+import { IArticleHeaderData } from "../../shared/interfaces";
+import {
+  AiFillGithub,
+  AiOutlineTwitter,
+  AiFillLinkedin,
+  AiFillInstagram,
+  AiFillFacebook,
+  AiFillTwitterCircle,
+  AiOutlineGithub,
+  AiOutlineLinkedin,
+} from "react-icons/ai";
 import {
   combineClasses,
   dateToFr,
   transformImagePaths,
 } from "../../utils/utils";
-import classes from "./ArticleCard.module.scss";
+import classes from "./auteurCard.module.scss";
 import Avatar from "../Misc/Avatar";
 import ArticleCardCategory from "../Misc/ArticleCardCategory";
 import ArticleTags from "../Misc/ArticleTags";
 import Image from "next/image";
+import { IAuthor } from "../../shared/interfaces";
 
 interface IProp {
-  article: IArticleHeaderData;
   author: IAuthor;
   path: string;
 }
 
-const ArticleCard = ({ article, path, author }: IProp) => {
+const AuthorCard = ({ author, path }: IProp) => {
   // set url and path
   const origin =
     typeof window !== "undefined" && window.location.origin
@@ -29,21 +39,20 @@ const ArticleCard = ({ article, path, author }: IProp) => {
   };
 
   return (
-    <div className={"w-full lg:w-1/3 md:w-1/2 md:px-[15px] px-2 mb-[30px]"}>
-      <LinkTo
-        underline={false}
-        href={article.category + path}
-        passHref
+    <div
+      className={"z-10 w-full lg:w-1/3 md:w-1/2 md:px-[15px] px-2 mb-[30px]"}
+    >
+      <div
         className={combineClasses(
-          classes.article_card,
+          classes.author_card,
           "border-b-[5px] border-blue-500 dark:bg-slate-800 dark:text-white dark:drop-shadow-lg flex flex-col justify-between"
         )}
       >
         <div>
           <div className={"rounded-t-[4px] overflow-hidden h-[200px] relative"}>
             <Image
-              src={transformImagePaths(article.thumbnail)}
-              alt={article.articleTitle}
+              src={transformImagePaths(author.profilePic)}
+              alt={author.name}
               layout="fill"
               quality={100}
               objectFit="cover"
@@ -53,9 +62,9 @@ const ArticleCard = ({ article, path, author }: IProp) => {
 
           <div className={"d-block px-[15px] py-0"}>
             <p className={"font-normal text-xs pt-3 mb-0 md:mb-3"}>
-              {dateToFr({ date: article.date })}
+              Inscrit le {dateToFr({ date: author.InscriptionDate })}
             </p>
-            <LinkTo underline={false} href={article.category + path} passHref>
+            {/* <LinkTo underline={false} href={author.category + path} passHref>
               <h1
                 className={
                   "text-[22px] font-bold cursor-pointer tracking-wide hover:text-blue-600"
@@ -63,16 +72,35 @@ const ArticleCard = ({ article, path, author }: IProp) => {
               >
                 {article.articleTitle}
               </h1>
-            </LinkTo>
+            </LinkTo> */}
             <p
               className={combineClasses(
                 classes.article_card__intro,
                 "text-sm font-normal mt-2 md:mt-1"
               )}
             >
-              {article.shortIntro.slice(0, 100)} ...
+              {author.bio.slice(0, 100)} ...
             </p>
-            <ArticleTags tags={article.tags} />
+            {/* <ArticleTags tags={article.tags} /> */}
+            {author.social?.length && (
+              <div className="flex items-center flex-wrap mt-3">
+                {author.social.map((each, i) => (
+                  <LinkTo
+                    underline={false}
+                    external
+                    href={each.link}
+                    key={i}
+                    className="z-50 mr-[15px] text-[32px]"
+                  >
+                    {each.icon === "Github" && <AiFillGithub />}
+                    {each.icon === "Linkedin" && <AiFillLinkedin />}
+                    {each.icon === "Facebook" && <AiFillFacebook />}
+                    {each.icon === "Instagram" && <AiFillInstagram />}
+                    {each.icon === "Twitter" && <AiFillTwitterCircle />}
+                  </LinkTo>
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <div
@@ -87,8 +115,7 @@ const ArticleCard = ({ article, path, author }: IProp) => {
               className="w-[40px] h-[40px] mr-3 text-xl"
             />
             <LinkTo
-              underline={false}
-              href={"/auteurs/" + author.slug}
+              href={`/auteurs/${author.slug}`}
               passHref
               className={combineClasses(
                 classes.author_name,
@@ -101,11 +128,11 @@ const ArticleCard = ({ article, path, author }: IProp) => {
               {article.author.name}
             </p> */}
           </div>
-          <ArticleCardCategory category={article.category} />
+          {/* <ArticleCardCategory category={article.category} /> */}
         </div>
-      </LinkTo>
+      </div>
     </div>
   );
 };
 
-export default ArticleCard;
+export default AuthorCard;

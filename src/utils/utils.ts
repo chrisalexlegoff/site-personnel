@@ -1,6 +1,8 @@
 import { THEMES } from "../shared/enums";
 import { GAEvent } from "../../google";
-import { iArticle } from "../shared/interfaces";
+import { iArticle, iSEO } from "../shared/interfaces";
+import { WEBSITE_NAME } from "../../BLOG_CONSTANTS/_BLOG_SETUP";
+import { useRouter } from "next/router";
 
 // env
 const env = process.env.NODE_ENV;
@@ -201,4 +203,97 @@ export const dateToFr = ({ date }: any) => {
     "Décembre",
   ];
   return `${dateAr[0]} ${mois[parseInt(dateAr[1]) - 1]} ${dateAr[2]}`;
+};
+
+/**
+ * Creates SEO Config from ArticleDetails.preview || ArticleDetails.seo ||  PAGE_SEO
+ * @param PAGE_SEO : iSEO
+ * @returns SEO config
+ */
+export const CREATE_SEO_CONFIG = (pageSEO: iSEO) => {
+  /**
+   * We can create SEO Config from
+   * ARTICLE_DETAILS or SEO object passed in article list or layout
+   */
+  const router = useRouter();
+
+  const isArticle = pageSEO.hasOwnProperty("seo");
+  console.log(isArticle);
+
+  // set url and path
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+  const LOCAL_URL = IS_DEV_MODE
+    ? origin
+    : process.env.NEXT_PUBLIC_URL
+    ? process.env.NEXT_PUBLIC_URL
+    : origin;
+  const LOCAL_PATH = isArticle ? pageSEO["seo"]?.path : router.asPath;
+
+  const meta_description = isArticle
+    ? pageSEO["seo"]?.preview?.shortIntro
+    : pageSEO.description;
+
+  const keywords = isArticle
+    ? pageSEO["seo"]?.preview?.tags
+    : pageSEO?.keywords;
+  const ogUrl = `${LOCAL_URL}${LOCAL_PATH}`;
+
+  const ogImage = pageSEO.ogImage
+    ? `${LOCAL_URL}${transformImagePaths(pageSEO?.ogImage)}`
+    : `${LOCAL_URL}${
+        isArticle ? transformImagePaths(pageSEO["seo"]?.preview.thumbnail) : ""
+      }`;
+
+  const twitterHandle = pageSEO?.twitterHandle || "";
+  const author = isArticle ? pageSEO["seo"]?.preview.author : pageSEO?.author;
+
+  const title =
+    router.asPath === "/"
+      ? `${
+          isArticle ? pageSEO["seo"]?.preview?.articleTitle : pageSEO?.title
+        } ${author ? "| " + author : ""}`
+      : `${
+          isArticle ? pageSEO["seo"]?.preview?.articleTitle : pageSEO?.title
+        } | ${WEBSITE_NAME} ${
+          author && author !== WEBSITE_NAME ? "| " + author : ""
+        }`;
+
+  let seo_config = {
+    title: title,
+    description: meta_description,
+    canonical: `${process.env.NEXT_PUBLIC_URL}${router.asPath}`,
+    additionalMetaTags: [
+      {
+        property: "keywords",
+        content: keywords || "",
+      },
+      {
+        property: "al:web:url",
+        content: ogUrl,
+      },
+    ],
+    openGraph: {
+      type: "website",
+      locale: "fr_FR",
+      url: ogUrl,
+      site_name: WEBSITE_NAME,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      handle: twitterHandle,
+      site: ogUrl,
+      cardType: "summary_large_image",
+    },
+  };
+  return seo_config;
 };

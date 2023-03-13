@@ -1,13 +1,27 @@
 import { GetStaticProps } from "next";
 import AuthorsIndexPage from "../src/components/AuteursIndexPage";
-import { IAuthor } from "../src/shared/interfaces";
+import { IAuthor, iSEO } from "../src/shared/interfaces";
 
 interface authorsTabProps {
   authorsTab: IAuthor[];
 }
 
 const TousLesauthors = ({ authorsTab }: authorsTabProps) => {
-  return <AuthorsIndexPage authorsTab={authorsTab} authorsPerPage={6} />;
+  const PAGE_SEO: iSEO = {
+    title: "Tous les auteurs",
+    description:
+      "Page regroupant tous les auteurs du site personnel de Christophe Le Goff à l'adresse https://christophe-le-goff.fr",
+    keywords:
+      "webexpx, contact us, contact@christophe-le-goff.com, next js blog template",
+    author: "Christophe Le Goff",
+  };
+  return (
+    <AuthorsIndexPage
+      PAGE_SEO={PAGE_SEO}
+      authorsTab={authorsTab}
+      authorsPerPage={6}
+    />
+  );
 };
 
 export default TousLesauthors;

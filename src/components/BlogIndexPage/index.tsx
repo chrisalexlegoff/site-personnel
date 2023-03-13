@@ -4,16 +4,18 @@ import { PageLayout } from "../../components";
 import { combineClasses, sortTableauParDate } from "../../utils/utils";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
-import { iArticle, IAuthor } from "../../shared/interfaces";
+import { iArticle, IAuthor, iSEO } from "../../shared/interfaces";
 import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 
 const BlogIndexPage = ({
+  PAGE_SEO,
   articlesPerPage = 1,
   articlesTab,
   authorsTab,
   category = "",
   author = "",
 }: {
+  PAGE_SEO?: iSEO;
   articlesPerPage?: number;
   articlesTab: iArticle[];
   authorsTab: IAuthor[];
@@ -54,7 +56,7 @@ const BlogIndexPage = ({
   };
 
   return (
-    <PageLayout articlesTab={articlesTab} home>
+    <PageLayout PAGE_SEO={PAGE_SEO} articlesTab={articlesTab} home>
       <div
         className={combineClasses(
           "container mt-10 md:pt-0 px-0 md:px-3",

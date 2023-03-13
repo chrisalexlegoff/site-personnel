@@ -8,10 +8,18 @@ import {
   Seperator,
   Accordian,
 } from "../src/components";
+import { iSEO } from "../src/shared/interfaces";
 
 const About = () => {
+  const PAGE_SEO: iSEO = {
+    title: "A propos de moi",
+    description: `Je suis un développeur freelance web Full Stack passionné ayant une expérience dans la création de sites web et applications avec les framework React.js, Next.js, ExpressJS, le CMS HeadLess Strapi et l'administration de bases de données.`,
+    keywords:
+      "webexpx, contact us, contact@christophe-le-goff.com, next js blog template",
+    author: "Christophe Le Goff",
+  };
   return (
-    <PageLayout home>
+    <PageLayout PAGE_SEO={PAGE_SEO} home>
       <section className="container px-3 md:pb-20 md:pt-10 pt-20">
         <div className="">
           <LinkTo

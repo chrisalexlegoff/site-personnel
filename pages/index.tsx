@@ -1,5 +1,6 @@
 /**These are necessary imports / components for the page */
 import { GetStaticProps } from "next";
+import { DEFAULT_SEO } from "../BLOG_CONSTANTS/_BLOG_SETUP";
 import { PageLayout, Text, LinkTo, Seperator } from "../src/components";
 import FeaturedArticleSection from "../src/components/Misc/FeaturedArticleSection";
 import HomeNonFeatureArticles from "../src/components/Misc/HomeNonFeatureArticles";
@@ -25,6 +26,7 @@ const Home = ({ articlesTab, authorsTab }: articlesTabProps) => {
   );
   return (
     <PageLayout
+      PAGE_SEO={DEFAULT_SEO}
       article={articlesTab[0]}
       author={authorsTab[0]}
       authorsTab={authorsTab}

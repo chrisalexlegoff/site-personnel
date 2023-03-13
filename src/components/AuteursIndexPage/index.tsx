@@ -4,14 +4,16 @@ import { PageLayout } from "..";
 import { combineClasses, sortTableauParDate } from "../../utils/utils";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
-import { iArticle, IAuthor } from "../../shared/interfaces";
+import { iArticle, IAuthor, iSEO } from "../../shared/interfaces";
 import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import AuthorCard from "../AuteurCards";
 
 const AuthorsIndexPage = ({
+  PAGE_SEO,
   authorsPerPage = 1,
   authorsTab,
 }: {
+  PAGE_SEO?: iSEO;
   authorsPerPage?: number;
   authorsTab: IAuthor[];
 }) => {
@@ -36,7 +38,7 @@ const AuthorsIndexPage = ({
   };
 
   return (
-    <PageLayout authorsTab={authorsTab} home>
+    <PageLayout PAGE_SEO={PAGE_SEO} authorsTab={authorsTab} home>
       <div className="container mt-10 md:pt-0 px-0 md:px-3 pt-14">
         <h1
           className="px-2 mb-[30px] text-[45px] font-bold"

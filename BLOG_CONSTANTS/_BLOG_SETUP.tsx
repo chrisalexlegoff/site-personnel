@@ -1,5 +1,5 @@
 import { LogoType, NavbarType } from "../src/shared/enums";
-import { iNavSetup } from "../src/shared/interfaces";
+import { iNavSetup, iSEO } from "../src/shared/interfaces";
 import {
   AiOutlineTwitter,
   AiFillInstagram,
@@ -134,4 +134,16 @@ export const PRIMARY_NAV: iNavSetup = {
       icon: <AiOutlineLinkedin />,
     },
   ],
+};
+
+export const DEFAULT_SEO: iSEO = {
+  title: "Blog",
+  description:
+    "Je suis un développeur freelance web Full Stack passionné ayant une expérience dans la création de sites web et applications avec lesframework React.js, Next.js, ExpressJS, le CMS HeadLess Strapi et l'administration de bases de données.",
+  keywords:
+    "Blog, next js, template, next js blog, blog setup, typescript, nextjs typescript, react js blog template, responsive blog template",
+  url: process.env.NEXT_PUBLIC_URL,
+  author: "Christophe Le Goff",
+  twitterHandle: "@chrisalexlegoff",
+  ogImage: "/public/images/og-image.jpg",
 };

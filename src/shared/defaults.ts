@@ -28,3 +28,8 @@ export const IArticleDefaultsValues = {
     category: "",
   },
 };
+
+export const IMetaRobotDefaultsValues = {
+  index: true,
+  foloow: true,
+};

@@ -20,6 +20,11 @@ export interface IArticleHeaderData {
   category?: string;
 }
 
+export interface iMetaRobot {
+  noindex: boolean;
+  nofollow: boolean;
+}
+
 export interface iArticle {
   slug: string;
   path: string;
@@ -37,6 +42,7 @@ export interface iSEO {
   twitterHandle?: string;
   author?: string;
   url?: string;
+  seo?: iArticle;
 }
 
 export interface iNavbar {

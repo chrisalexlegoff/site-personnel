@@ -1,6 +1,5 @@
 /**These are necessary imports / components for the page */
 import { GetStaticProps } from "next";
-import { CHRISTOPHE } from "../BLOG_CONSTANTS/_BLOG_SETUP";
 import { PageLayout, Text, LinkTo, Seperator } from "../src/components";
 import FeaturedArticleSection from "../src/components/Misc/FeaturedArticleSection";
 import HomeNonFeatureArticles from "../src/components/Misc/HomeNonFeatureArticles";
@@ -25,7 +24,13 @@ const Home = ({ articlesTab, authorsTab }: articlesTabProps) => {
       article.preview.category === "tutoriels" && !article.featureArticle
   );
   return (
-    <PageLayout authorsTab={authorsTab} articlesTab={articlesTab} home>
+    <PageLayout
+      article={articlesTab[0]}
+      author={authorsTab[0]}
+      authorsTab={authorsTab}
+      articlesTab={articlesTab}
+      home
+    >
       <section className="w-full md:pt-[100px] md:pb-[70px] pt-[130px] pb-20 mb-10 dark:bg-slate-800 bg-slate-200">
         <div className="container text-center px-3">
           <Text title className="text-3xl">

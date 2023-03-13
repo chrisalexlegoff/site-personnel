@@ -27,10 +27,10 @@ const BlogIndexPage = ({
     (each) => each.preview.author === author
   );
 
-  const [ARTICLES, setARTICLES] = useState(sortTableauParDate({ articlesTab }));
+  const [articles, setArticles] = useState(sortTableauParDate({ articlesTab }));
 
   useEffect(() => {
-    setARTICLES(
+    setArticles(
       category
         ? categoryArticles
         : author
@@ -38,18 +38,18 @@ const BlogIndexPage = ({
         : sortTableauParDate({ articlesTab })
     );
   }, [category, author]);
-  const [currentItems, setCurrentItems] = useState(ARTICLES);
+  const [currentItems, setCurrentItems] = useState(articles);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
   useEffect(() => {
     const endOffset = itemOffset + articlesPerPage;
-    setCurrentItems(ARTICLES.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(ARTICLES.length / articlesPerPage));
-  }, [itemOffset, articlesPerPage, ARTICLES]);
+    setCurrentItems(articles.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(articles.length / articlesPerPage));
+  }, [itemOffset, articlesPerPage, articles]);
 
   const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * articlesPerPage) % ARTICLES.length;
+    const newOffset = (event.selected * articlesPerPage) % articles.length;
     setItemOffset(newOffset);
   };
 

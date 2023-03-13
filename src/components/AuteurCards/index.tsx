@@ -1,33 +1,26 @@
 import LinkTo from "../LinkTo";
-import { IArticleHeaderData } from "../../shared/interfaces";
 import {
   AiFillGithub,
-  AiOutlineTwitter,
   AiFillLinkedin,
   AiFillInstagram,
   AiFillFacebook,
   AiFillTwitterCircle,
-  AiOutlineGithub,
-  AiOutlineLinkedin,
 } from "react-icons/ai";
 import {
   combineClasses,
   dateToFr,
   transformImagePaths,
 } from "../../utils/utils";
-import classes from "./auteurCard.module.scss";
+import classes from "./AuteurCard.module.scss";
 import Avatar from "../Misc/Avatar";
-import ArticleCardCategory from "../Misc/ArticleCardCategory";
-import ArticleTags from "../Misc/ArticleTags";
 import Image from "next/image";
 import { IAuthor } from "../../shared/interfaces";
 
 interface IProp {
   author: IAuthor;
-  path: string;
 }
 
-const AuthorCard = ({ author, path }: IProp) => {
+const AuthorCard = ({ author }: IProp) => {
   // set url and path
   const origin =
     typeof window !== "undefined" && window.location.origin
@@ -64,24 +57,14 @@ const AuthorCard = ({ author, path }: IProp) => {
             <p className={"font-normal text-xs pt-3 mb-0 md:mb-3"}>
               Inscrit le {dateToFr({ date: author.InscriptionDate })}
             </p>
-            {/* <LinkTo underline={false} href={author.category + path} passHref>
-              <h1
-                className={
-                  "text-[22px] font-bold cursor-pointer tracking-wide hover:text-blue-600"
-                }
-              >
-                {article.articleTitle}
-              </h1>
-            </LinkTo> */}
             <p
               className={combineClasses(
-                classes.article_card__intro,
+                classes.auteur_card__intro,
                 "text-sm font-normal mt-2 md:mt-1"
               )}
             >
-              {author.bio.slice(0, 100)} ...
+              {author.bio !== undefined && author.bio.slice(0, 100)} ...
             </p>
-            {/* <ArticleTags tags={article.tags} /> */}
             {author.social?.length && (
               <div className="flex items-center flex-wrap mt-3">
                 {author.social.map((each, i) => (
@@ -105,7 +88,7 @@ const AuthorCard = ({ author, path }: IProp) => {
         </div>
         <div
           className={combineClasses(
-            classes.article_card_footer,
+            classes.auteur_card_footer,
             "mt-4 mb-3 flex items-center px-3"
           )}
         >
@@ -124,11 +107,7 @@ const AuthorCard = ({ author, path }: IProp) => {
             >
               {author.name}
             </LinkTo>
-            {/* <p className={combineClasses(classes.author_name, 'text-sm font-medium')}>
-              {article.author.name}
-            </p> */}
           </div>
-          {/* <ArticleCardCategory category={article.category} /> */}
         </div>
       </div>
     </div>

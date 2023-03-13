@@ -10,26 +10,6 @@ const FeaturedArticleSection = ({
   featuredArticles,
   authorsTab,
 }: articlesTabProps) => {
-  // const featureArticles = [
-  //   {
-  //     path: "/how-to-setup-blog",
-  //     slug: "how-to-setup-blog",
-  //     featureArticle: true,
-  //     aVoirAbsolument: true,
-  //     preview: {
-  //       author: CHRISTOPHE,
-  //       date: "August 09 2022",
-  //       articleTitle: "How to setup this blog template",
-  //       tags: "demo, blog setup",
-  //       thumbnail: "/public/imp_assets/og-image.jpg",
-  //       shortIntro: "These are the steps to setup your blog",
-  //       category: "tutoriels",
-  //     },
-  //   },
-  // ];
-  // const featureArticles = SORTED_ARTICLES_BY_DATE.filter(
-  //   (article: iArticle) => article.featureArticle === true
-  // ).slice(0, 3);
   return featuredArticles.length ? (
     <>
       <Text

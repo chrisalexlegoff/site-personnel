@@ -4,7 +4,7 @@ import { PageLayout } from "..";
 import { combineClasses, sortTableauParDate } from "../../utils/utils";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
-import { iArticle } from "../../shared/interfaces";
+import { iArticle, IAuthor } from "../../shared/interfaces";
 import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import AuthorCard from "../AuteurCards";
 
@@ -13,25 +13,25 @@ const AuthorsIndexPage = ({
   authorsTab,
 }: {
   authorsPerPage?: number;
-  authorsTab: iArticle[];
+  authorsTab: IAuthor[];
 }) => {
-  const [authorS, setauthorS] = useState(authorsTab);
+  const [authors, setAuthors] = useState(authorsTab);
 
   useEffect(() => {
-    setauthorS(authorsTab);
+    setAuthors(authorsTab);
   }, []);
-  const [currentItems, setCurrentItems] = useState(authorS);
+  const [currentItems, setCurrentItems] = useState(authors);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
   useEffect(() => {
     const endOffset = itemOffset + authorsPerPage;
-    setCurrentItems(authorS.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(authorS.length / authorsPerPage));
-  }, [itemOffset, authorsPerPage, authorS]);
+    setCurrentItems(authors.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(authors.length / authorsPerPage));
+  }, [itemOffset, authorsPerPage, authors]);
 
   const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * authorsPerPage) % authorS.length;
+    const newOffset = (event.selected * authorsPerPage) % authors.length;
     setItemOffset(newOffset);
   };
 
@@ -48,8 +48,8 @@ const AuthorsIndexPage = ({
 
         <div className="flex flex-wrap">
           {currentItems
-            ? (currentItems as any).map((each: iArticle, i: any) => (
-                <AuthorCard author={each} path={each.path} key={i} />
+            ? (currentItems as any).map((each: IAuthor, i: any) => (
+                <AuthorCard author={each} key={i} />
               ))
             : null}
         </div>

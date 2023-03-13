@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { combineClasses } from "../../utils/utils";
 import classes from "./Search.module.scss";
 import SearchArticleCard from "../ArticleCards/SearchArticleCard";
-
 import { MdOutlineClose } from "react-icons/md";
-import { CHRISTOPHE } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
 
 interface ISearch {
   closeSearch: () => void;

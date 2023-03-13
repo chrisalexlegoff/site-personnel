@@ -8,15 +8,24 @@ import {
 import LinkTo from "../LinkTo";
 import Avatar from "./Avatar";
 import SocialShare from "../SocialShare/SocialShare";
+import {
+  AiFillFacebook,
+  AiFillGithub,
+  AiFillInstagram,
+  AiFillLinkedin,
+  AiFillTwitterCircle,
+} from "react-icons/ai";
 
 const ArticleMoreFromAuthor = ({
   author,
   relatedArticles,
   articleGrid = false,
+  category = "articles",
 }: {
   author: IAuthor;
   relatedArticles: iArticle[];
   articleGrid?: boolean;
+  category?: string;
 }) => {
   const wrapperClasses =
     "bg-white dark:bg-slate-800 dark:border-none border-slate-100 shadow-lg border md:rounded-[8px] px-[15px] py-[10px] mb-[30px] overflow-hidden";
@@ -35,12 +44,17 @@ const ArticleMoreFromAuthor = ({
           <div className="flex items-center flex-wrap mt-3">
             {author.social.map((each, i) => (
               <LinkTo
+                underline={false}
                 external
                 href={each.link}
                 key={i}
-                className="mr-[15px] text-[32px]"
+                className="z-50 mr-[15px] text-[32px]"
               >
-                {each.icon}
+                {each.icon === "Github" && <AiFillGithub />}
+                {each.icon === "Linkedin" && <AiFillLinkedin />}
+                {each.icon === "Facebook" && <AiFillFacebook />}
+                {each.icon === "Instagram" && <AiFillInstagram />}
+                {each.icon === "Twitter" && <AiFillTwitterCircle />}
               </LinkTo>
             ))}
           </div>
@@ -50,7 +64,7 @@ const ArticleMoreFromAuthor = ({
       {isDesktopDevice() && (
         <div className={wrapperClasses}>
           <p className="border-b border-gray-300 pb-2 mb-3 font-medium w-full">
-            Share this article
+            Partager cet article
           </p>
           <SocialShare />
         </div>
@@ -59,7 +73,7 @@ const ArticleMoreFromAuthor = ({
       {relatedArticles.length && (
         <div className={wrapperClasses}>
           <p className="border-b border-gray-300 pb-2 mb-3 font-medium w-full">
-            More from Author
+            Autres {category} du même auteur
           </p>
           <div className={articleGrid ? "flex flex-wrap" : ""}>
             {relatedArticles.slice(0, 3).map((each, i) => (
@@ -88,11 +102,13 @@ const ArticleMoreFromAuthor = ({
             ))}
             {relatedArticles.length > 3 ? (
               <LinkTo
-                href={"/blog?author=" + author.name}
+                href={"/articles?author=" + author.name}
                 passHref
                 className="block text-sm py-3 px-2 text-center dark:bg-slate-900 bg-blue-500 rounded text-white font-bold hover:!text-blue-900 dark:hover:!text-slate-400 transition-all"
               >
-                <p>All articles from {author.name}</p>
+                <p>
+                  Tous les {category} de {author.name}
+                </p>
               </LinkTo>
             ) : null}
           </div>

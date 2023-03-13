@@ -13,6 +13,7 @@ const Article = ({ article, authorsTab, articlesTab }: articleProps) => {
   return (
     // pass blogwithsidebar as shown
     <PageLayout
+      PAGE_SEO={article.seo}
       authorsTab={authorsTab}
       article={article}
       author={
@@ -21,7 +22,7 @@ const Article = ({ article, authorsTab, articlesTab }: articleProps) => {
       articlesTab={articlesTab}
       blogwithsidebar
     >
-      test
+      {article.slug}
     </PageLayout>
   );
 };
@@ -88,6 +89,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
         thumbnail: "/public/imp_assets/og-image.jpg",
         shortIntro: "These are the steps to setup your blog",
         category: "articles",
+      },
+      seo: {
+        title: "How to setup this blog template",
+        description: "These are the steps to setup your blog",
+        keywords: "demo, blog setup",
+        ogImage: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+        twitterHandle: "@CHRISTOPHE_nalwala",
+        author: "toto",
       },
     },
     {
@@ -204,7 +213,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     },
     {
-      path: "/how-to-do",
+      path: "/how-to-do-3",
       slug: "how-to-do-1",
       featureArticle: false,
       aVoirAbsolument: false,
@@ -246,6 +255,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         thumbnail: "/public/imp_assets/og-image.jpg",
         shortIntro: "These are the steps to setup your blog",
         category: "articles",
+      },
+      seo: {
+        title: "How to setup this blog template",
+        description: "These are the steps to setup your blog",
+        keywords: "demo, blog setup",
+        ogImage: "/public/imp_assets/tutorials/how-to-setup-blog.svg",
+        twitterHandle: "@CHRISTOPHE_nalwala",
+        author: "toto",
       },
     },
     {

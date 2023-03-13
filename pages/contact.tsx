@@ -1,9 +1,18 @@
 /**These are necessary imports / components for the page */
 import { PageLayout, Text, LinkTo } from "../src/components";
+import { iSEO } from "../src/shared/interfaces";
 
 const Contact = () => {
+  const PAGE_SEO: iSEO = {
+    title: "Contactez-moi",
+    description:
+      "Pour toute question ou demande de renseignement concernant le site personnel de Christophe Le goff envoyez un mail à contact@christophe-le-goff.com",
+    keywords:
+      "webexpx, contact us, contact@christophe-le-goff.com, next js blog template",
+    author: "Christophe Le Goff",
+  };
   return (
-    <PageLayout home>
+    <PageLayout PAGE_SEO={PAGE_SEO} home>
       <section className="container px-3 pb-10 md:pt-20 pt-[80px]">
         <Text title className="!text-5xl !font-light">
           Contactez-moi

@@ -5,10 +5,11 @@ import Script from "next/script";
 import * as gtag from "../google";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "next-themes";
-
 import "@uiw/react-textarea-code-editor/dist.css";
 import "react-medium-image-zoom/dist/styles.css";
-import { Footer, Favicons } from "../src/components";
+import { Footer } from "../src/components";
+import { CREATE_SEO_CONFIG } from "../src/utils/utils";
+import { NextSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
@@ -17,10 +18,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setMounted(true);
   }, []);
+  let SEO_CONFIG = CREATE_SEO_CONFIG({});
 
   if (!mounted && env === "development") return null;
   return (
     <>
+      <NextSeo {...SEO_CONFIG} />
       <Head>
         <meta
           name="viewport"

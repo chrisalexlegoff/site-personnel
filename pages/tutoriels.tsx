@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import BlogIndexPage from "../src/components/BlogIndexPage";
-import { iArticle, IAuthor } from "../src/shared/interfaces";
+import { iArticle, IAuthor, iSEO } from "../src/shared/interfaces";
 
 interface articlesTabProps {
   articlesTab: iArticle[];
@@ -8,8 +8,17 @@ interface articlesTabProps {
 }
 
 const TousLesTutoriels = ({ articlesTab, authorsTab }: articlesTabProps) => {
+  const PAGE_SEO: iSEO = {
+    title: "Tous les tutoriels",
+    description:
+      "Page regroupant tous les tutoriels du site personnel de Christophe Le Goff à l'adresse https://christophe-le-goff.fr",
+    keywords:
+      "webexpx, contact us, contact@christophe-le-goff.com, next js blog template",
+    author: "Christophe Le Goff",
+  };
   return (
     <BlogIndexPage
+      PAGE_SEO={PAGE_SEO}
       authorsTab={authorsTab}
       category="tutoriels"
       articlesTab={articlesTab}

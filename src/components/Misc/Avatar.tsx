@@ -22,7 +22,9 @@ const Avatar = ({
           width="100%"
         />
       ) : (
-        <p className="text-center font-medium text-white">{author.name[0]}</p>
+        <p className="text-center font-medium text-white">
+          {author.name !== undefined ? author.name[0] : ""}
+        </p>
       )}
     </div>
   );

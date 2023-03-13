@@ -1,12 +1,9 @@
 import { LogoType, NavbarType } from "../src/shared/enums";
-import { IAuthor, iNavSetup, iSEO } from "../src/shared/interfaces";
+import { iNavSetup } from "../src/shared/interfaces";
 import {
-  AiFillGithub,
   AiOutlineTwitter,
-  AiFillLinkedin,
   AiFillInstagram,
   AiFillFacebook,
-  AiFillTwitterCircle,
   AiOutlineGithub,
   AiOutlineLinkedin,
 } from "react-icons/ai";
@@ -31,36 +28,6 @@ import {
     ]
 }
  */
-
-export const CHRISTOPHE: IAuthor = {
-  name: "Christophe Le Goff",
-  slug: "christophe-le-goff",
-  designation: "Développeur NodeJs Full Stack",
-  bio: "Je suis un développeur freelance web Full Stack passionné ayant une expérience dans la création de sites web et applications avec les framework React.js, Next.js, ExpressJS, le CMS HeadLess Strapi et l'administration de bases de données.",
-  profilePic: "",
-  social: [
-    {
-      icon: <AiFillGithub />,
-      link: "https://github.com/chrisalexlegoff",
-    },
-    {
-      icon: <AiFillLinkedin />,
-      link: "https://www.linkedin.com/in/chrisalexlegoff/",
-    },
-    {
-      icon: <AiFillFacebook />,
-      link: "https://www.facebook.com/christophe.legoff.739",
-    },
-    {
-      icon: <AiFillInstagram />,
-      link: "https://www.instagram.com/chrisalexlegoff/",
-    },
-    {
-      icon: <AiFillTwitterCircle />,
-      link: "https://twitter.com/chrisalexlegoff",
-    },
-  ],
-};
 
 // This can your company name / your name etc for SEO purposes
 export const WEBSITE_NAME: string = "Christophe Le Goff";

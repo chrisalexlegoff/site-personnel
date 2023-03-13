@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import AuthorsIndexPage from "../src/components/AuteursIndexPage";
-import { iArticle } from "../src/shared/interfaces";
+import { IAuthor } from "../src/shared/interfaces";
 
 interface authorsTabProps {
-  authorsTab: iArticle[];
+  authorsTab: IAuthor[];
 }
 
 const TousLesauthors = ({ authorsTab }: authorsTabProps) => {

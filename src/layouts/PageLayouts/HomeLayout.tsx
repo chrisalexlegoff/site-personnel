@@ -3,7 +3,7 @@ import { iArticle, IAuthor } from "../../shared/interfaces";
 interface homeLayoutProps {
   children: React.ReactNode;
   articlesTab?: iArticle[];
-  authorsTab?: IAuthor[];
+  authorsTab: IAuthor[];
 }
 
 const HomeLayout = ({ children, articlesTab, authorsTab }: homeLayoutProps) => {

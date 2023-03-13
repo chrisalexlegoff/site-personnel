@@ -11,9 +11,15 @@ import { useTheme } from "next-themes";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import NavCatergoryDD from "../Misc/NavCategoryDD";
-import { iNavLink, iNavSetup, iNavSocials } from "../../shared/interfaces";
+import {
+  iArticle,
+  iNavLink,
+  iNavSetup,
+  iNavSocials,
+} from "../../shared/interfaces";
 import { CURRENT_YEAR } from "../../constants/appConstants";
 import { AVoirAbsoluement } from "../Misc/AVoirAbsolument";
+import { IArticleDefaultsValues } from "../../shared/defaults";
 
 interface IProps {
   openSidebar: boolean;
@@ -29,6 +35,109 @@ const NavSidebar = ({
   changeTheme,
 }: IProps) => {
   const { theme, setTheme } = useTheme();
+  const [articlesAVoirAbsoluement, setArticlesAVoirAbsoluement] = useState<
+    iArticle[]
+  >([IArticleDefaultsValues]);
+  console.log(articlesAVoirAbsoluement);
+  useEffect(() => {
+    const allArticles = JSON.stringify([
+      {
+        path: "/how-to-setup-blog",
+        slug: "how-to-setup-blog",
+        featureArticle: true,
+        aVoirAbsolument: false,
+        preview: {
+          author: "christophe-le-goff",
+          date: "2022-06-11",
+          articleTitle: "How to setup this blog template",
+          tags: "demo, blog setup",
+          thumbnail: "/public/imp_assets/og-image.jpg",
+          shortIntro: "These are the steps to setup your blog",
+          category: "tutoriels",
+        },
+      },
+      {
+        path: "/how-to-do",
+        slug: "how-to-do",
+        featureArticle: false,
+        aVoirAbsolument: true,
+        preview: {
+          author: "christophe-le-goff",
+          date: "2022-07-11",
+          articleTitle: "How to do a template",
+          tags: "demo, article, template",
+          thumbnail: "/public/imp_assets/og-image.jpg",
+          shortIntro: "These are the steps to setup your blog",
+          category: "articles",
+        },
+      },
+      {
+        path: "/how-to-do",
+        slug: "how-to-do",
+        featureArticle: false,
+        aVoirAbsolument: false,
+        preview: {
+          author: "christophe-le-goff",
+          date: "2022-05-11",
+          articleTitle: "How to do a template",
+          tags: "demo, article, template",
+          thumbnail: "/public/imp_assets/og-image.jpg",
+          shortIntro: "These are the steps to setup your blog",
+          category: "articles",
+        },
+      },
+      {
+        path: "/how-to-do",
+        slug: "how-to-do",
+        featureArticle: false,
+        aVoirAbsolument: false,
+        preview: {
+          author: "christophe-le-goff",
+          date: "2023-02-11",
+          articleTitle: "How to do a template",
+          tags: "demo, article, template",
+          thumbnail: "/public/imp_assets/og-image.jpg",
+          shortIntro: "These are the steps to setup your blog",
+          category: "articles",
+        },
+      },
+      {
+        path: "/how-to-setup-blog",
+        slug: "how-to-setup-blog",
+        featureArticle: false,
+        aVoirAbsolument: false,
+        preview: {
+          author: "christophe-le-goff",
+          date: "2022-12-11",
+          articleTitle: "How to setup this blog template",
+          tags: "demo, blog setup",
+          thumbnail: "/public/imp_assets/og-image.jpg",
+          shortIntro: "These are the steps to setup your blog",
+          category: "tutoriels",
+        },
+      },
+      {
+        path: "/how-to-setup-blog",
+        slug: "how-to-setup-blog",
+        featureArticle: false,
+        aVoirAbsolument: false,
+        preview: {
+          author: "christophe-le-goff",
+          date: "2022-08-10",
+          articleTitle: "How to setup this blog template",
+          tags: "demo, blog setup",
+          thumbnail: "/public/imp_assets/og-image.jpg",
+          shortIntro: "These are the steps to setup your blog",
+          category: "tutoriels",
+        },
+      },
+    ]);
+    const articlesTab = JSON.parse(allArticles).filter(
+      (article: iArticle) => article.aVoirAbsolument
+    );
+    setArticlesAVoirAbsoluement(articlesTab);
+    console.log(articlesTab);
+  }, []);
   useEffect(() => {
     openSidebar ? addBodyNoScroll() : removeBodyNoScroll();
 
@@ -172,7 +281,9 @@ const NavSidebar = ({
               </LinkTo>
             </>
           ) : (
-            <AVoirAbsoluement />
+            <AVoirAbsoluement
+              articlesAVoirAbsoluement={articlesAVoirAbsoluement}
+            />
           )}
         </div>
         <hr />

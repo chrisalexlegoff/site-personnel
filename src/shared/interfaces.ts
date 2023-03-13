@@ -7,7 +7,7 @@ export interface IAuthor {
   designation?: string;
   bio?: string;
   social?: iNavSocials[];
-  InscriptionDate: Date;
+  InscriptionDate: string;
 }
 
 export interface IArticleHeaderData {
@@ -21,6 +21,7 @@ export interface IArticleHeaderData {
 }
 
 export interface iArticle {
+  slug: string;
   path: string;
   featureArticle?: boolean;
   aVoirAbsolument?: boolean;

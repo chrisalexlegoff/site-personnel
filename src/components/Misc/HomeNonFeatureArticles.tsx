@@ -1,4 +1,3 @@
-import { CHRISTOPHE } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
 import { iArticle, IAuthor } from "../../shared/interfaces";
 import ArticleCard from "../ArticleCards/ArticleCard";
 import LinkTo from "../LinkTo";

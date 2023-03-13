@@ -1,16 +1,22 @@
-import { iArticle } from "../../shared/interfaces"
-import ArticleHeaderCenter from "./ArticleHeaderCentered"
-import ArticleHeaderDefault from "./ArticleHeaderDefault"
+import { iArticle, IAuthor } from "../../shared/interfaces";
+import ArticleHeaderCenter from "./ArticleHeaderCentered";
+import ArticleHeaderDefault from "./ArticleHeaderDefault";
 
 interface IArticleHeader {
-    centered?: boolean,
-    ARTICLE_DETAILS: iArticle
+  centered?: boolean;
+  article: iArticle;
+  author: IAuthor;
 }
-const ArticleHeader = ({ centered = false, ARTICLE_DETAILS }: IArticleHeader) => {
-    return (
-        centered ? <ArticleHeaderCenter headerData={ARTICLE_DETAILS.preview} /> :
-            <ArticleHeaderDefault headerData={ARTICLE_DETAILS.preview} />
-    )
-}
+const ArticleHeader = ({
+  centered = false,
+  article,
+  author,
+}: IArticleHeader) => {
+  return centered ? (
+    <ArticleHeaderCenter author={author} headerData={article.preview} />
+  ) : (
+    <ArticleHeaderDefault author={author} headerData={article.preview} />
+  );
+};
 
-export default ArticleHeader
+export default ArticleHeader;
